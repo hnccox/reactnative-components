@@ -27,7 +27,10 @@ if (parameters) {
 argsEnhancers.forEach((enhancer) => addArgsEnhancer(enhancer));
 
 const getStories = () => {
-  return [require("../components/Button/Button.stories.tsx")];
+  return [
+    require("../src/components/button/AppButton.stories.tsx"),
+    require("../src/components/modal/AppModal.stories.tsx"),
+  ];
 };
 
 configure(getStories, module, false);
