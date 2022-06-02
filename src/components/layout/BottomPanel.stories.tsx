@@ -3,21 +3,21 @@ import useState from 'storybook-addon-state';
 import {Pressable, StatusBar, StyleSheet, Text, View} from 'react-native';
 import {ComponentMeta, ComponentStory} from '@storybook/react';
 
-import {BottomSheet} from './BottomSheet';
+import {BottomPanel} from './BottomPanel';
 
 export default {
-  title: 'components/BottomSheet',
-  component: BottomSheet,
-} as ComponentMeta<typeof BottomSheet>;
+  title: 'components/BottomPanel',
+  component: BottomPanel,
+} as ComponentMeta<typeof BottomPanel>;
 
-export const Bottom: ComponentStory<typeof BottomSheet> = () => {
-  const [showBottomSheet, setShowBottomSheet] = useState(
-    'showBottomSheet',
+export const Bottom: ComponentStory<typeof BottomPanel> = () => {
+  const [showBottomPanel, setShowBottomPanel] = useState(
+    'showBottomPanel',
     false,
   );
 
   const hide = () => {
-    setShowBottomSheet(false);
+    setShowBottomPanel(false);
   };
 
   return (
@@ -26,20 +26,24 @@ export const Bottom: ComponentStory<typeof BottomSheet> = () => {
       <View style={styles.container}>
         <Pressable
           onPress={() => {
-            setShowBottomSheet(true);
+            setShowBottomPanel(true);
           }}
           style={styles.showButton}>
-          <Text style={styles.buttonText}>Show bottom sheet</Text>
+          <Text style={styles.buttonText}>Show bottom panel</Text>
         </Pressable>
 
-        <BottomSheet show={true} height={300} onOuterClick={hide}>
-          <View style={styles.bottomSheetContent}>
-            <Text style={styles.bottomSheetText}>Hey boys, hey girls!</Text>
-            <Pressable onPress={hide} style={styles.bottomSheetCloseButton}>
+        <BottomPanel
+          show={showBottomPanel}
+          height={600}
+          onOuterClick={hide}
+          onInnerClick={hide}>
+          <View style={styles.bottomPanelContent}>
+            <Text style={styles.bottomPanelText}>Hey boys, hey girls!</Text>
+            <Pressable onPress={hide} style={styles.bottomPanelCloseButton}>
               <Text style={styles.buttonText}>X Close</Text>
             </Pressable>
           </View>
-        </BottomSheet>
+        </BottomPanel>
       </View>
     </View>
   );
@@ -66,15 +70,15 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 20,
   },
-  bottomSheetContent: {
+  bottomPanelContent: {
     padding: 40,
     alignItems: 'center',
   },
-  bottomSheetText: {
+  bottomPanelText: {
     fontSize: 24,
     marginBottom: 80,
   },
-  bottomSheetCloseButton: {
+  bottomPanelCloseButton: {
     padding: 16,
     backgroundColor: 'deeppink',
     borderRadius: 8,
