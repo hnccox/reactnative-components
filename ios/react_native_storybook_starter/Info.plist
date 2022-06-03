@@ -36,7 +36,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -51,5 +51,46 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>geomanist-regular-webfont.woff</string>
+		<string>geomanist-regular-webfont.woff2</string>
+		<string>geomanist-regular-webfont.ttf</string>
+		<string>GreatVibes-Regular.otf</string>
+		<string>Pacifico.ttf</string>
+		<string>geomanist-black-webfont.ttf</string>
+		<string>geomanist-black-webfont.woff</string>
+		<string>geomanist-black-webfont.woff2</string>
+		<string>Geomanist-Black.otf</string>
+		<string>geomanist-bold-webfont.ttf</string>
+		<string>geomanist-bold-webfont.woff</string>
+		<string>geomanist-bold-webfont.woff2</string>
+		<string>Geomanist-Bold.otf</string>
+		<string>geomanist-book-webfont.ttf</string>
+		<string>geomanist-book-webfont.woff</string>
+		<string>geomanist-book-webfont.woff2</string>
+		<string>Geomanist-Book.otf</string>
+		<string>geomanist-extralight-webfont.ttf</string>
+		<string>geomanist-extralight-webfont.woff</string>
+		<string>geomanist-extralight-webfont.woff2</string>
+		<string>Geomanist-ExtraLight.otf</string>
+		<string>geomanist-light-webfont.ttf</string>
+		<string>geomanist-light-webfont.woff</string>
+		<string>geomanist-light-webfont.woff2</string>
+		<string>Geomanist-Light.otf</string>
+		<string>geomanist-medium-webfont.ttf</string>
+		<string>geomanist-medium-webfont.woff</string>
+		<string>geomanist-medium-webfont.woff2</string>
+		<string>Geomanist-Medium.otf</string>
+		<string>Geomanist-Regular.otf</string>
+		<string>geomanist-thin-webfont.ttf</string>
+		<string>geomanist-thin-webfont.woff</string>
+		<string>geomanist-thin-webfont.woff2</string>
+		<string>Geomanist-Thin.otf</string>
+		<string>geomanist-ultra-webfont.ttf</string>
+		<string>geomanist-ultra-webfont.woff</string>
+		<string>geomanist-ultra-webfont.woff2</string>
+		<string>Geomanist-Ultra.otf</string>
+	</array>
 </dict>
 </plist>

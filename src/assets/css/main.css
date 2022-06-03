@@ -1,0 +1,78 @@
+/* @font-face {
+  font-family: "FontAwesome";
+   src: url("../assets/fonts/FontAwesome.eot");
+   src: url("../assets/fonts/FontAwesome.eot") format("embedded-opentype"),
+        url("../assets/fonts/FontAwesome.woff2") format("woff2"),
+        url("../assets/fonts/FontAwesome.woff") format("woff"),
+        url("../assets/fonts/FontAwesome.ttf") format("truetype"),
+        url("../assets/fonts/FontAwesome.svg") format("svg");
+   font-weight: normal;
+   font-style: normal;
+ } */
+
+ /* #root {
+   background-color: red;
+ } */
+
+ @font-face {
+  font-family: 'Geomanist-Black';
+  src: url('../fonts/Geomanist-Black.otf');
+  font-weight: normal;
+  font-style: normal;
+ }
+
+ @font-face {
+  font-family: 'Geomanist';
+  src: url('../fonts/Geomanist-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+ }
+ 
+ @font-face {
+  font-family: 'Geomanist-Medium';
+  src: url('../fonts/Geomanist-Medium.otf');
+  font-weight: normal;
+  font-style: normal;
+ }
+
+ @font-face {
+  font-family: 'Geomanist';
+  src: url('../fonts/Geomanist-Thin.otf');
+  font-weight: 200;
+  font-style: normal;
+ }
+
+ @font-face {
+  font-family: 'Geomanist-Light';
+  src: url('../fonts/Geomanist-Light.otf');
+  font-weight: normal;
+  font-style: normal;
+ }
+
+ @font-face {
+  font-family: 'Geomanist-Bold';
+  src: url('../fonts/Geomanist-Bold.otf');
+  font-weight: normal;
+  font-style: normal;
+ }
+
+ @font-face {
+  font-family: 'Geomanist-Ultra';
+  src: url('../fonts/Geomanist-Ultra.otf');
+  font-weight: normal;
+  font-style: normal;
+ }
+
+ @font-face {
+  font-family: 'GreatVibes';
+  src: url('../fonts/GreatVibes-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pacifico';
+  src: url('../fonts/Pacifico.ttf');
+  font-weight: normal;
+  font-style: normal;
+}

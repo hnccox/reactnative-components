@@ -1,5 +1,7 @@
 // .storybook/preview.js
 
+import '../src/assets/css/main.css';
+
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 const customViewports = {

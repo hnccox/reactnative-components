@@ -1,6 +1,7 @@
 import React from 'react';
 import useState from 'storybook-addon-state';
 import {Pressable, StatusBar, StyleSheet, Text, View} from 'react-native';
+import AppButton from '../button/AppButton';
 import {ComponentMeta, ComponentStory} from '@storybook/react';
 
 import {BottomPanel} from './BottomPanel';
@@ -24,19 +25,44 @@ export const Bottom: ComponentStory<typeof BottomPanel> = () => {
     <View style={styles.safeAreaView}>
       <StatusBar barStyle={'dark-content'} />
       <View style={styles.container}>
-        <Pressable
+        <AppButton
           onPress={() => {
             setShowBottomPanel(true);
           }}
           style={styles.showButton}>
           <Text style={styles.buttonText}>Show bottom panel</Text>
-        </Pressable>
+        </AppButton>
+        {/* <Pressable
+          onPress={() => {
+            setShowBottomPanel(true);
+          }}
+          style={styles.showButton}>
+          <Text style={styles.buttonText}>Show bottom panel</Text>
+        </Pressable> */}
 
         <BottomPanel
           show={showBottomPanel}
           height={600}
           onOuterClick={hide}
           onInnerClick={hide}>
+          <View
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <View
+              style={{
+                paddingTop: 8,
+                borderBottomColor: 'gray',
+                borderBottomWidth: 6,
+                borderBottomLeftRadius: 3,
+                borderBottomRightRadius: 3,
+                borderTopLeftRadius: 3,
+                borderTopRightRadius: 3,
+                width: 100,
+              }}
+            />
+          </View>
           <View style={styles.bottomPanelContent}>
             <Text style={styles.bottomPanelText}>Hey boys, hey girls!</Text>
             <Pressable onPress={hide} style={styles.bottomPanelCloseButton}>
