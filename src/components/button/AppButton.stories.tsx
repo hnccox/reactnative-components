@@ -73,45 +73,45 @@ export const Link: ComponentStory<typeof AppButton> = args => (
 
 Primary.args = {
   title: 'Primary',
-  btnType: 'primary',
+  buttonType: 'primary',
 };
 
 Secondary.args = {
   title: 'Secondary',
-  btnType: 'secondary',
+  buttonType: 'secondary',
 };
 
 Success.args = {
   title: 'Success',
-  btnType: 'success',
+  buttonType: 'success',
 };
 
 Danger.args = {
   title: 'Danger',
-  btnType: 'danger',
+  buttonType: 'danger',
 };
 
 Warning.args = {
   title: 'Warning',
-  btnType: 'warning',
+  buttonType: 'warning',
 };
 
 Info.args = {
   title: 'Info',
-  btnType: 'info',
+  buttonType: 'info',
 };
 
 Light.args = {
   title: 'Light',
-  btnType: 'light',
+  buttonType: 'light',
 };
 
 Dark.args = {
   title: 'Dark',
-  btnType: 'dark',
+  buttonType: 'dark',
 };
 
 Link.args = {
   title: 'Link',
-  btnType: 'link',
+  buttonType: 'link',
 };

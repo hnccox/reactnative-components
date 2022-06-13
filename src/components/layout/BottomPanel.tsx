@@ -10,13 +10,21 @@ import {
 
 const DEFAULT_HEIGHT = 300;
 
-interface Props {
+// interface Props {
+//   children: React.ReactNode;
+//   show: boolean;
+//   height?: number | string;
+//   onOuterClick?: () => void;
+//   onInnerClick?: () => void;
+// }
+
+type Props = {
   children: React.ReactNode;
-  show: boolean;
+  show: object;
   height?: number | string;
   onOuterClick?: () => void;
   onInnerClick?: () => void;
-}
+};
 
 export function BottomPanel({
   children,

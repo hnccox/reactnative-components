@@ -5,21 +5,22 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 
-const AppButton = ({
-  onPress,
-  title,
-  btnType = 'default',
-}: {
-  onPress: (e: GestureResponderEvent) => {};
+type Props = {
+  onPress: (e: GestureResponderEvent) => any;
   title: string;
-  btnType: string;
-}) => {
+  buttonType: string;
+};
+
+const AppButton = ({onPress, title, buttonType = 'default'}: Props) => {
   return (
     <TouchableOpacity
       onPress={onPress}
-      style={[styles.btn, styles.primary, btnType && styles[btnType]]}>
-      <Text style={[styles.btnText, btnType && styles[`${btnType}Text`]]}>
+      style={[styles.button, styles.primary, buttonType && styles[buttonType]]}>
+      <Text
+        style={[styles.buttonText, buttonType && styles[`${buttonType}Text`]]}>
+        <FontAwesomeIcon icon={['fas', 'coffee']} style={{color: '#ffffff'}} />
         {title}
       </Text>
     </TouchableOpacity>
@@ -27,7 +28,10 @@ const AppButton = ({
 };
 
 const styles: Record<string, any> = StyleSheet.create({
-  btn: {
+  light: {
+    color: 'red',
+  },
+  button: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
@@ -37,7 +41,7 @@ const styles: Record<string, any> = StyleSheet.create({
     paddingHorizontal: 45,
     overflow: 'hidden',
   },
-  btnText: {
+  buttonText: {
     fontFamily: 'Geomanist-Bold',
     fontStyle: 'normal',
     fontWeight: 'normal',

@@ -7,7 +7,6 @@ import AppModal from './AppModal';
 export default {
   title: 'components/AppModal',
   component: AppModal,
-  
 } as ComponentMeta<typeof AppModal>;
 
 export const Primary: ComponentStory<typeof AppModal> = args => (
@@ -16,7 +15,7 @@ export const Primary: ComponentStory<typeof AppModal> = args => (
 
 Primary.args = {
   title: 'Primary',
-  class: 'primary'
+  class: 'primary',
 };
 
 export const Secondary: ComponentStory<typeof AppModal> = args => (
@@ -25,5 +24,5 @@ export const Secondary: ComponentStory<typeof AppModal> = args => (
 
 Secondary.args = {
   title: 'Secondary',
-  class: 'secondary'
+  class: 'secondary',
 };
