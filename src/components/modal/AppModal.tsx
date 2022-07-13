@@ -34,6 +34,16 @@ const AppModal = () => {
 };
 
 const styles = StyleSheet.create({
+  button: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 6,
+    paddingVertical: 15,
+    paddingHorizontal: 45,
+    overflow: 'hidden',
+  },
   centeredView: {
     flex: 1,
     justifyContent: 'center',
@@ -55,7 +65,6 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
-
   buttonOpen: {
     backgroundColor: '#F194FF',
   },

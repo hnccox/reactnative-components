@@ -28,9 +28,6 @@ const AppButton = ({onPress, title, buttonType = 'default'}: Props) => {
 };
 
 const styles: Record<string, any> = StyleSheet.create({
-  light: {
-    color: 'red',
-  },
   button: {
     display: 'flex',
     flexDirection: 'row',

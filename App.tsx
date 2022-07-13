@@ -7,4 +7,5 @@ import {faMugSaucer} from '@fortawesome/free-solid-svg-icons/faMugSaucer';
 library.add(fab, fas, faSquareCheck, faMugSaucer);
 
 import StorybookUIRoot from './.ondevice/Storybook';
+import '@storybook/addon-console';
 export {StorybookUIRoot as default};
