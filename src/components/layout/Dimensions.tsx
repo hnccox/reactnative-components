@@ -21,13 +21,13 @@ const App = () => {
     <View style={styles.container}>
       <Text style={styles.header}>Window Dimensions</Text>
       {Object.entries(dimensions.window).map(([wndkey, value]) => (
-        <Text>
+        <Text key={wndkey.toString()}>
           {wndkey} - {value}
         </Text>
       ))}
       <Text style={styles.header}>Screen Dimensions</Text>
       {Object.entries(dimensions.screen).map(([scrnkey, value]) => (
-        <Text>
+        <Text key={scrnkey.toString()}>
           {scrnkey} - {value}
         </Text>
       ))}
