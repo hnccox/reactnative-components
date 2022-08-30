@@ -5,24 +5,36 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { IconPrefix, IconProp } from "@fortawesome/fontawesome-svg-core";
+
+export const buttonTypes = ["default", "primary", "secondary", "success", "danger", "warning", "info", "light", "dark", "link"] as const
+export const iconPositions = ["top", "left", "right", "bottom"] as const
 
 type Props = {
   onPress: (e: GestureResponderEvent) => any;
-  title: string;
-  buttonType: string;
+  title?: string;
+  buttonType?: typeof buttonTypes[number];
+	icon?: string;
+	iconColor?: string;
+	iconPosition?: typeof iconPositions[number];
 };
 
-const AppButton = ({onPress, title, buttonType = 'default'}: Props) => {
+const AppButton = ({onPress, title, buttonType = 'default', icon = '', iconColor, iconPosition = 'left'}: Props) => {
+
   return (
     <TouchableOpacity
       onPress={onPress}
-      style={[styles.button, styles.primary, buttonType && styles[buttonType]]}>
-      <Text
-        style={[styles.buttonText, buttonType && styles[`${buttonType}Text`]]}>
-        <FontAwesomeIcon icon={['fas', 'coffee']} style={{color: '#ffffff'}} />
-        {title}
-      </Text>
+      style={[styles.button, styles.primary, buttonType && styles[buttonType], (iconPosition === 'left' || iconPosition === 'right' ? styles.horizontal : styles.vertical)]}>
+			{	(icon !== '' && (iconPosition === 'top' || iconPosition === 'left')) && <FontAwesomeIcon icon={['fas', `${icon}`] as IconProp} style={{color: (iconColor) ? `${iconColor}` : `#ffffff`, marginRight: (iconPosition === 'left') ? 6 : 0, marginBottom: (iconPosition === 'top') ? 6 : 0}} /> }
+      {
+				title && 
+				<Text style={[styles.buttonText, buttonType && styles[`${buttonType}Text`]]}>
+        	{title}
+      	</Text>
+			}
+			{	(icon !== '' && (iconPosition === 'right' || iconPosition === 'bottom')) && <FontAwesomeIcon icon={['fas', `${icon}`] as IconProp} style={{color: (iconColor) ? `${iconColor}` : `#ffffff`, marginTop: (iconPosition === 'bottom') ? 6 : 0, marginLeft: (iconPosition === 'right') ? 6 : 0}} />	}
     </TouchableOpacity>
   );
 };
@@ -30,7 +42,6 @@ const AppButton = ({onPress, title, buttonType = 'default'}: Props) => {
 const styles: Record<string, any> = StyleSheet.create({
   button: {
     display: 'flex',
-    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 6,
@@ -38,6 +49,12 @@ const styles: Record<string, any> = StyleSheet.create({
     paddingHorizontal: 45,
     overflow: 'hidden',
   },
+	vertical: {
+    flexDirection: 'column'
+	},
+	horizontal: {
+    flexDirection: 'row'
+	},
   buttonText: {
     fontFamily: 'Geomanist-Bold',
     fontStyle: 'normal',
@@ -128,4 +145,6 @@ const styles: Record<string, any> = StyleSheet.create({
   // },
 });
 
+
+	
 export default AppButton;

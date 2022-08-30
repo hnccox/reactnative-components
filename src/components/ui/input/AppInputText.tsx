@@ -13,13 +13,12 @@ type Props = {
 const AppTextInput = ({icon, iconColor, placeholder}: Props) => {
   const [text, onChangeText] = React.useState(placeholder);
   const [number, onChangeNumber] = React.useState(null);
-	let inputIcon = ['fas', `${icon}`] as IconProp
-	let color = (iconColor) ? `${iconColor}` : `#ffffff`;
+	// let color = (iconColor) ? `${iconColor}` : `#ffffff`;
 
   return (
     <SafeAreaView>
 			<View style={[styles.container, styles.input]}>
-				{ icon &&	<FontAwesomeIcon icon={inputIcon} style={{color: color, marginRight: 5}} /> }
+				{ icon &&	<FontAwesomeIcon icon={['fas', `${icon}`] as IconProp} style={{color: (iconColor) ? `${iconColor}` : `#ffffff`, marginRight: 5}} /> }
 				<TextInput
 					onChangeText={onChangeText}
 					value={text}

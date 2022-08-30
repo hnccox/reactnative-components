@@ -3,6 +3,8 @@ import {StyleSheet, View} from 'react-native';
 import {ComponentMeta, ComponentStory} from '@storybook/react';
 
 import AppButton from './AppButton';
+import { buttonTypes } from './AppButton';
+import { iconPositions } from './AppButton';
 
 const styles = StyleSheet.create({
   position: {
@@ -15,6 +17,10 @@ const styles = StyleSheet.create({
 export default {
   title: 'components/AppButton',
   component: AppButton,
+	argTypes: { 
+		buttonType: { control: { type: 'select' }, options: buttonTypes } ,
+		iconPosition: { control: { type: 'select'} , options: iconPositions } ,
+	},
 } as ComponentMeta<typeof AppButton>;
 
 export const Primary: ComponentStory<typeof AppButton> = args => (
@@ -74,6 +80,8 @@ export const Link: ComponentStory<typeof AppButton> = args => (
 Primary.args = {
   title: 'Primary',
   buttonType: 'primary',
+	icon: 'key',
+	iconPosition: 'left',
 };
 
 Secondary.args = {

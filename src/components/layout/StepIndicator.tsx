@@ -18,11 +18,10 @@ const StepIndicator = ({active = false}: Props) => {
 
 const styles = StyleSheet.create({
   stepIndicator: {
-		flex: 1,
-		flexGrow: 0,
-		order: 0,
 		height: 5,
 		width: 25,
+		marginVertical: 3,
+		marginHorizontal: 3,
 		backgroundColor: '#EBEBED',
 		borderRadius: 56,
   },

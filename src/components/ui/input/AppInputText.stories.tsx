@@ -29,12 +29,6 @@ export const Password: ComponentStory<typeof AppInputText> = args => (
   </View>
 );
 
-export const Password2: ComponentStory<typeof AppInputText> = args => (
-  <View style={styles.position}>
-    <AppInputText {...args} />
-  </View>
-);
-
 User.args = {
 	icon: 'user',
 	iconColor: '#31344A',
