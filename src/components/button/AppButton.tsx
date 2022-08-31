@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { IconPrefix, IconProp } from "@fortawesome/fontawesome-svg-core";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 export const buttonTypes = ["default", "primary", "secondary", "success", "danger", "warning", "info", "light", "dark", "link"] as const
 export const iconPositions = ["top", "left", "right", "bottom"] as const
@@ -22,19 +22,46 @@ type Props = {
 };
 
 const AppButton = ({onPress, title, buttonType = 'default', icon = '', iconColor, iconPosition = 'left'}: Props) => {
+  const flexDirection = () => {
+    switch (iconPosition) {
+      case 'top':
+        return 'column'
+      case 'right': 
+        return 'row-reverse'
+      case 'bottom':
+        return 'column-reverse'
+      case 'left': 
+        return 'row'
+    }
+  }
+
+	const iconComponent = (
+    <FontAwesomeIcon 
+      icon={['fas', `${icon}`] as IconProp} 
+      style={[
+        styles[`${buttonType}Text`], 
+        {
+          marginTop: (iconPosition === 'bottom' && title) ? 6 : 0, 
+          marginRight: (iconPosition === 'left' && title) ? 6 : 0, 
+          marginBottom: (iconPosition === 'top' && title) ? 6 : 0,
+          marginLeft: (iconPosition === 'right' && title) ? 6 : 0 
+        }
+      ]} 
+    />
+  );
+
+  const textComponent = (
+    <Text style={[styles.buttonText, buttonType && styles[`${buttonType}Text`]]}>
+      {title}
+    </Text>
+  )
 
   return (
     <TouchableOpacity
       onPress={onPress}
-      style={[styles.button, styles.primary, buttonType && styles[buttonType], (iconPosition === 'left' || iconPosition === 'right' ? styles.horizontal : styles.vertical)]}>
-			{	(icon !== '' && (iconPosition === 'top' || iconPosition === 'left')) && <FontAwesomeIcon icon={['fas', `${icon}`] as IconProp} style={[styles[`${buttonType}Text`], {marginRight: (iconPosition === 'left' && title) ? 6 : 0, marginBottom: (iconPosition === 'top' && title) ? 6 : 0 }]} /> }
-      {
-				title && 
-				<Text style={[styles.buttonText, buttonType && styles[`${buttonType}Text`]]}>
-        	{title}
-      	</Text>
-			}
-			{	(icon !== '' && (iconPosition === 'right' || iconPosition === 'bottom')) && <FontAwesomeIcon icon={['fas', `${icon}`] as IconProp} style={[styles[`${buttonType}Text`], {marginTOP: (iconPosition === 'bottom' && title) ? 6 : 0, marginLeft: (iconPosition === 'right' && title) ? 6 : 0 }]} />	}
+      style={[styles.button, styles.primary, buttonType && styles[buttonType], {flexDirection: flexDirection()}]}>
+      {icon && iconComponent}
+      {title && textComponent}
     </TouchableOpacity>
   );
 };
@@ -133,6 +160,4 @@ const styles: Record<string, any> = StyleSheet.create({
   }
 });
 
-
-	
 export default AppButton;
