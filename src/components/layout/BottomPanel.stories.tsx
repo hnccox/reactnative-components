@@ -135,10 +135,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   primary: {
-    borderColor: '#007bff',
-    backgroundColor: '#007bff',
+    borderColor: 'hsl(211, 100%, 50%)',
+    backgroundColor: 'hsl(211, 100%, 50%)',
   },
   primaryText: {
-    color: '#fff',
+    color: 'hsl(0, 0%, 100%)',
   },
 });

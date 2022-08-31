@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     zIndex: 1,
     // Here you can set a common style for all bottom sheets, or nothing if you
     // want different designs
-    backgroundColor: '#fff',
+    backgroundColor: 'hsl(0, 0%, 100%)',
     borderTopLeftRadius: 16,
     borderTopRightRadius: 16,
     borderBottomLeftRadius: 0,
