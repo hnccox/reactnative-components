@@ -27,14 +27,14 @@ const AppButton = ({onPress, title, buttonType = 'default', icon = '', iconColor
     <TouchableOpacity
       onPress={onPress}
       style={[styles.button, styles.primary, buttonType && styles[buttonType], (iconPosition === 'left' || iconPosition === 'right' ? styles.horizontal : styles.vertical)]}>
-			{	(icon !== '' && (iconPosition === 'top' || iconPosition === 'left')) && <FontAwesomeIcon icon={['fas', `${icon}`] as IconProp} style={{color: (iconColor) ? `${iconColor}` : `#ffffff`, marginRight: (iconPosition === 'left') ? 6 : 0, marginBottom: (iconPosition === 'top') ? 6 : 0}} /> }
+			{	(icon !== '' && (iconPosition === 'top' || iconPosition === 'left')) && <FontAwesomeIcon icon={['fas', `${icon}`] as IconProp} style={[styles[`${buttonType}Text`], {marginRight: (iconPosition === 'left' && title) ? 6 : 0, marginBottom: (iconPosition === 'top' && title) ? 6 : 0 }]} /> }
       {
 				title && 
 				<Text style={[styles.buttonText, buttonType && styles[`${buttonType}Text`]]}>
         	{title}
       	</Text>
 			}
-			{	(icon !== '' && (iconPosition === 'right' || iconPosition === 'bottom')) && <FontAwesomeIcon icon={['fas', `${icon}`] as IconProp} style={{color: (iconColor) ? `${iconColor}` : `#ffffff`, marginTop: (iconPosition === 'bottom') ? 6 : 0, marginLeft: (iconPosition === 'right') ? 6 : 0}} />	}
+			{	(icon !== '' && (iconPosition === 'right' || iconPosition === 'bottom')) && <FontAwesomeIcon icon={['fas', `${icon}`] as IconProp} style={[styles[`${buttonType}Text`], {marginRight: (iconPosition === 'bottom' && title) ? 6 : 0, marginBottom: (iconPosition === 'right' && title) ? 6 : 0 }]} />	}
     </TouchableOpacity>
   );
 };
@@ -63,86 +63,74 @@ const styles: Record<string, any> = StyleSheet.create({
     textAlign: 'center',
   },
   default: {
-    backgroundColor: '#000000',
+    backgroundColor: 'hsl(360, 100%, 100%)',
   },
   defaultText: {
-    color: '#FFFFFF',
+    color: 'hsl(360, 0%, 0%)',
   },
   primary: {
-    borderColor: '#007bff',
-    backgroundColor: '#007bff',
+    borderColor: 'hsl(211, 100%, 50%)',
+    backgroundColor: 'hsl(211, 100%, 50%)',
   },
   primaryText: {
-    color: '#fff',
+    color: 'hsl(0, 0%, 100%)',
   },
   secondary: {
-    borderColor: '#6c757d',
-    backgroundColor: '#6c757d',
+    borderColor: 'hsl(208, 7%, 46%)',
+    backgroundColor: 'hsl(208, 7%, 46%)'
   },
   secondaryText: {
-    color: '#fff',
+    color: 'hsl(0, 0%, 100%)',
   },
   success: {
-    borderColor: '#28a745',
-    backgroundColor: '#28a745',
+    borderColor: 'hsl(134, 61%, 41%)',
+    backgroundColor: 'hsl(134, 61%, 41%)',
   },
   successText: {
-    color: '#fff',
+    color: 'hsl(0, 0%, 100%)',
   },
   danger: {
-    borderColor: '#dc3545',
-    backgroundColor: '#dc3545',
+    borderColor: 'hsl(354, 70%, 54%)',
+    backgroundColor: 'hsl(354, 70%, 54%)',
   },
   dangerText: {
-    color: '#fff',
+    color: 'hsl(0, 0%, 100%)',
   },
   warning: {
-    borderColor: '#ffc107',
-    backgroundColor: '#ffc107',
+    borderColor: 'hsl(45, 100%, 51%)',
+    backgroundColor: 'hsl(45, 100%, 51%)',
   },
   warningText: {
-    color: '#212529',
+    color: 'hsl(210, 11%, 15%)',
   },
   info: {
-    borderColor: '#17a2b8',
-    backgroundColor: '#17a2b8',
+    borderColor: 'hsl(188, 78%, 41%)',
+    backgroundColor: 'hsl(188, 78%, 41%)',
   },
   infoText: {
-    color: '#fff',
+    color: 'hsl(0, 0%, 100%)',
   },
   light: {
-    borderColor: '#f8f9fa',
-    backgroundColor: '#f8f9fa',
+    borderColor: 'hsl(210, 17%, 98%)',
+    backgroundColor: 'hsl(210, 17%, 98%)',
   },
   lightText: {
-    color: '#212529',
+    color: 'hsl(210, 11%, 15%)',
   },
   dark: {
-    borderColor: '#343a40',
-    backgroundColor: '#343a40',
+    borderColor: 'hsl(210, 10%, 23%)',
+    backgroundColor: 'hsl(210, 10%, 23%)',
   },
   darkText: {
-    color: '#fff',
+    color: 'hsl(0, 0%, 100%)',
   },
   link: {
     backgroundColor: 'transparent',
   },
   linkText: {
     fontWeight: '400',
-    color: '#007bff',
-  },
-  // primary: {
-  //   backgroundColor: '#31344A',
-  // },
-  // primaryText: {
-  //   color: '#FFFFFF',
-  // },
-  // secondary: {
-  //   backgroundColor: '#EBEBED',
-  // },
-  // secondaryText: {
-  //   color: '#343C45',
-  // },
+    color: 'hsl(211, 100%, 50%)',
+  }
 });
 
 

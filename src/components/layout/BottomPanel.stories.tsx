@@ -73,7 +73,7 @@ export const Bottom: ComponentStory<typeof BottomPanel> = () => {
             <Pressable
               onPress={hide}
               style={[styles.button, buttonType && styles[buttonType]]}>
-              <FontAwesomeIcon icon="fa-solid fa-rectangle-xmark" />
+              <FontAwesomeIcon icon="fa-solid fa-rectangle-xmark" as IconProp />
 
               {/* <Text
                 style={[

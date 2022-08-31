@@ -21,9 +21,9 @@ export default {
 export const Primary: ComponentStory<typeof AppButtonGroup> = () => (
   <View style={styles.position}>
     <AppButtonGroup>
-			<AppButton onPress={() => {}} icon={'key'} iconPosition={'left'}></AppButton>
-			<AppButton onPress={() => {}} ></AppButton>
-			<AppButton onPress={() => {}} ></AppButton>
+			<AppButton onPress={() => {}} icon={'bicycle'}></AppButton>
+			<AppButton onPress={() => {}} icon={'car'}></AppButton>
+			<AppButton onPress={() => {}} icon={'person-walking'}></AppButton>
 		</AppButtonGroup>
   </View>
 );

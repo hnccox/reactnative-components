@@ -23,6 +23,12 @@ export default {
 	},
 } as ComponentMeta<typeof AppButton>;
 
+export const Default: ComponentStory<typeof AppButton> = args => (
+  <View style={styles.position}>
+    <AppButton {...args} />
+  </View>
+);
+
 export const Primary: ComponentStory<typeof AppButton> = args => (
   <View style={styles.position}>
     <AppButton {...args} />
@@ -77,11 +83,16 @@ export const Link: ComponentStory<typeof AppButton> = args => (
   </View>
 );
 
+Default.args = {
+  title: 'Default',
+  buttonType: 'default',
+	icon: 'icons',
+	iconPosition: 'left',
+};
+
 Primary.args = {
   title: 'Primary',
   buttonType: 'primary',
-	icon: 'key',
-	iconPosition: 'left',
 };
 
 Secondary.args = {
