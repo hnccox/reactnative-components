@@ -34,7 +34,7 @@ const AppButton = ({onPress, title, buttonType = 'default', icon = '', iconColor
         	{title}
       	</Text>
 			}
-			{	(icon !== '' && (iconPosition === 'right' || iconPosition === 'bottom')) && <FontAwesomeIcon icon={['fas', `${icon}`] as IconProp} style={[styles[`${buttonType}Text`], {marginRight: (iconPosition === 'bottom' && title) ? 6 : 0, marginBottom: (iconPosition === 'right' && title) ? 6 : 0 }]} />	}
+			{	(icon !== '' && (iconPosition === 'right' || iconPosition === 'bottom')) && <FontAwesomeIcon icon={['fas', `${icon}`] as IconProp} style={[styles[`${buttonType}Text`], {marginTOP: (iconPosition === 'bottom' && title) ? 6 : 0, marginLeft: (iconPosition === 'right' && title) ? 6 : 0 }]} />	}
     </TouchableOpacity>
   );
 };
