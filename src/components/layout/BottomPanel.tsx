@@ -20,7 +20,7 @@ const DEFAULT_HEIGHT = 300;
 
 type Props = {
   children: React.ReactNode;
-  show: object;
+  show: boolean;
   height?: number | string;
   onOuterClick?: () => void;
   onInnerClick?: () => void;

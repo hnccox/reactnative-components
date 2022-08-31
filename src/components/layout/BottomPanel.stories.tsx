@@ -6,6 +6,7 @@ import {ComponentMeta, ComponentStory} from '@storybook/react';
 import {BottomPanel} from './BottomPanel';
 import AppButton from '../button/AppButton';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import { IconPrefix, IconProp } from "@fortawesome/fontawesome-svg-core";
 
 export default {
   title: 'components/BottomPanel',
@@ -73,7 +74,7 @@ export const Bottom: ComponentStory<typeof BottomPanel> = () => {
             <Pressable
               onPress={hide}
               style={[styles.button, buttonType && styles[buttonType]]}>
-              <FontAwesomeIcon icon="fa-solid fa-rectangle-xmark" as IconProp />
+              <FontAwesomeIcon icon={['fas', 'rectangle-xmark'] as IconProp} />
 
               {/* <Text
                 style={[
