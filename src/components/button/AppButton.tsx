@@ -61,17 +61,10 @@ const AppButton = ({onPress, title, buttonType = 'default', icon = '', iconColor
       onPress={onPress}
       style={[styles.button, styles.primary, buttonType && styles[buttonType], {flexDirection: flexDirection()}]}>
       {
-				!!icon &&     
-				<FontAwesomeIcon 
-      		icon={iconArray()} 
-      		style={iconStyles()} 
-    		/>
+				!!icon &&  iconComponent
 			}
       {
-				!!title && 
-				<Text style={[styles.buttonText, buttonType && styles[`${buttonType}Text`]]}>
-      		{title}
-    		</Text>
+				!!title && textComponent
 			}
     </TouchableOpacity>
   );
