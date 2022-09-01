@@ -30,8 +30,15 @@ type Props = {
 const OptionSlider = ({buttonType, options}: Props) => {
 	const optionsContainerRef = useRef<any>(null);
 	const selectorRef = useRef<any>(null);
+	const opacityAnim = useRef(new Animated.Value(0)).current
+	const translateXAnim = useRef(new Animated.Value(0)).current // calculate from store option
 
 	const [measure, setMeasure] = useState<any>({left: 0, top: 0, width: 0, height: 0});
+	const [dimensions, setDimensions] = useState({x: 0, y: 0, width: 0, height: 0});
+	const [selectedOption, setSelectedOption] = useState(1)	// get from store
+	const [elements, setElements] = useState<Element[]>();
+	// const [translateXAnim, setTranslateXAnim] = useState(1)	// get from store
+
   useEffect(() => {
     if (selectorRef.current && optionsContainerRef.current) {
       selectorRef.current.measureLayout(
@@ -42,47 +49,31 @@ const OptionSlider = ({buttonType, options}: Props) => {
       );
     }
   }, [measure]);
-
-	const [dimensions, setDimensions] = useState({x: 0, y: 0, width: 0, height: 0});
-	const [elements, setElements] = useState<Element[]>()
-
-	useEffect(() => {
-		let elements = []
-
-		for(let i = 0; i < options.length; i++) {
-			elements.push(
-				<AppButton key={i} onPress={() => onPress(i)} buttonType={'link'} title={options[i].title} icon={options[i].icon} iconColor={options[i].iconColor} iconPosition={options[i].iconPosition} />
-			);
-			if(i !== options.length - 1) {
-				elements.push(
-					<View key = {`divider${i}`} style={[styles.divider, {opacity: 1}]}>
-					</View>
-				)
-			}
-		}	
-		setElements(elements)
-	}, [])
-
-	const [selectedOption, setSelectedOption] = useState(0)
-
-	const opacityAnim = useRef(new Animated.Value(0)).current
-	useEffect(() => {
+	
+	const setOpacity = () => {
     Animated.timing(
       opacityAnim,
       {
         toValue: 1,
+				delay: 200,
         duration: 200,
 				useNativeDriver: true,
       }
     ).start();
-  }, [opacityAnim])
+	}
+	// useEffect(() => {
+  //   Animated.timing(
+  //     opacityAnim,
+  //     {
+  //       toValue: 1,
+	// 			delay: 1000,
+  //       duration: 200,
+	// 			useNativeDriver: true,
+  //     }
+  //   ).start();
+  // }, [measure.width])
 
-	const translateXAnim = useRef(new Animated.Value(0)).current 
 	useEffect(() => {
-		console.log(selectedOption)
-		console.log(options[selectedOption])
-		options[selectedOption].title = 'red'
-		console.log(options[selectedOption])
 		Animated.timing(
 			translateXAnim,
 			{
@@ -90,11 +81,30 @@ const OptionSlider = ({buttonType, options}: Props) => {
 				duration: 200,
 				useNativeDriver: true
 			}
-		).start();
-	}, [translateXAnim, selectedOption])
+		).start(setOpacity);
+	}, [selectedOption, measure.width])
+
+	useEffect(() => {
+		const elements = []
+		for(let i = 0; i < options.length; i++) {
+			elements.push(
+				<AppButton key={i} onPress={() => onPress(i)} buttonType={'link'} title={options[i].title} icon={options[i].icon} iconColor={options[i].iconColor} iconPosition={options[i].iconPosition} />
+			);
+			if(i !== options.length - 1) {
+				elements.push(
+					<View key = {`divider${i}`} style={[styles.divider]}>
+					</View>
+				)
+			}
+		}
+		setElements(elements)
+		options[selectedOption].iconColor = 'hsl(233, 20%, 24%)'
+	}, [JSON.stringify(options)])
 
 	const onPress = (i: number) => {
 		setSelectedOption(i);
+		options.forEach(option => option.iconColor = 'hsl(230, 8%, 44%)')
+		options[i].iconColor = 'hsl(233, 20%, 24%)'
 	}
 		
 	return (
@@ -106,13 +116,14 @@ const OptionSlider = ({buttonType, options}: Props) => {
 				style={[styles.container, {position: 'absolute', margin: 'auto'}]}
 			>
 				<Animated.View ref={selectorRef}
-					style={[styles.selected, {width: ((dimensions.width - (options.length - 1)) / options.length), transform: [{translateX: translateXAnim}], opacity: (dimensions.width) ? opacityAnim : 0 }]}>
+					style={[styles.selected, {width: ((dimensions.width - (options.length - 1)) / options.length), transform: [{translateX: translateXAnim}]}, {opacity: (measure.width > 0) ? opacityAnim: 0}]}>
 					<View style={[styles.selector]}>
-						{/* <Text>{measure.left} {measure.width}</Text> */}
-						<Text>{selectedOption}</Text>
 					</View>
 				</Animated.View>
-				{elements}
+				<Animated.View
+					style={[styles.elements, {opacity: (measure.width > 0) ? opacityAnim: 0}]}>
+					{elements}
+				</Animated.View>
 			</View>
 		</>
 	)
@@ -146,13 +157,22 @@ const styles: Record<string, any> = StyleSheet.create({
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'center',
+		// transform: [{translateX: `${translateXAnim}`}],
 	},
 	selector: {
 		height: '80%',
 		width: '80%',
 		margin: 'auto',
 		borderRadius: 6,
-		backgroundColor: 'hsl(0, 0%, 100%)',
+		backgroundColor: 'hsl(0, 0%, 100%)'
+	},
+	elements: {
+		display: 'flex',
+		flex: 1,
+		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'center',
+		opacity: 0
 	}
 })
 

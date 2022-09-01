@@ -3,6 +3,7 @@ import {
   GestureResponderEvent,
   StyleSheet,
   Text,
+	View,
   TouchableOpacity,
 } from 'react-native';
 
@@ -22,6 +23,8 @@ type Props = {
 };
 
 const AppButton = ({onPress, title, buttonType = 'default', icon = '', iconColor, iconPosition = 'left'}: Props) => {
+
+	// const computedIiconColor = (iconColor) ? `color: ${iconColor}` : styles[`${buttonType}Text`]
   const flexDirection = () => {
     switch (iconPosition) {
       case 'top':
@@ -36,18 +39,18 @@ const AppButton = ({onPress, title, buttonType = 'default', icon = '', iconColor
   }
 
 	const iconComponent = (
-    <FontAwesomeIcon 
-      icon={['fas', `${icon}`] as IconProp} 
-      style={[
-        styles[`${buttonType}Text`], 
-        {
-          marginTop: (iconPosition === 'bottom' && title) ? 6 : 0, 
-          marginRight: (iconPosition === 'left' && title) ? 6 : 0, 
-          marginBottom: (iconPosition === 'top' && title) ? 6 : 0,
-          marginLeft: (iconPosition === 'right' && title) ? 6 : 0 
-        }
-      ]} 
-    />
+			<FontAwesomeIcon 
+				icon={['fas', `${icon}`] as IconProp} 
+				style={[styles[`${buttonType}Text`],
+					{
+						color: iconColor,
+						marginTop: (iconPosition === 'bottom' && title) ? 6 : 0, 
+						marginRight: (iconPosition === 'left' && title) ? 6 : 0, 
+						marginBottom: (iconPosition === 'top' && title) ? 6 : 0,
+						marginLeft: (iconPosition === 'right' && title) ? 6 : 0 
+					}]
+				} 
+			/>
   );
 
   const textComponent = (
@@ -61,7 +64,7 @@ const AppButton = ({onPress, title, buttonType = 'default', icon = '', iconColor
       onPress={onPress}
       style={[styles.button, styles.primary, buttonType && styles[buttonType], {flexDirection: flexDirection()}]}>
       {
-				!!icon &&  iconComponent
+				!!icon && iconComponent
 			}
       {
 				!!title && textComponent
@@ -155,7 +158,7 @@ const styles: Record<string, any> = StyleSheet.create({
   linkText: {
     fontWeight: '400',
     color: 'hsl(211, 100%, 50%)',
-  },
+  }
 });
 
 export default AppButton;
