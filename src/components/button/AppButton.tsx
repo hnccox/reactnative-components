@@ -22,7 +22,8 @@ type Props = {
 };
 
 const AppButton = ({onPress, title, buttonType = 'default', icon = '', iconColor, iconPosition = 'left'}: Props) => {
-  const flexDirection = () => {
+  
+	const flexDirection = () => {
     switch (iconPosition) {
       case 'top':
         return 'column'
@@ -34,34 +35,38 @@ const AppButton = ({onPress, title, buttonType = 'default', icon = '', iconColor
         return 'row'
     }
   }
-
-	const iconComponent = (
-    <FontAwesomeIcon 
-      icon={['fas', `${icon}`] as IconProp} 
-      style={[
-        styles[`${buttonType}Text`], 
-        {
-          marginTop: (iconPosition === 'bottom' && title) ? 6 : 0, 
-          marginRight: (iconPosition === 'left' && title) ? 6 : 0, 
-          marginBottom: (iconPosition === 'top' && title) ? 6 : 0,
-          marginLeft: (iconPosition === 'right' && title) ? 6 : 0 
-        }
-      ]} 
-    />
-  );
-
-  const textComponent = (
-    <Text style={[styles.buttonText, buttonType && styles[`${buttonType}Text`]]}>
-      {title}
-    </Text>
-  )
+	const iconArray = () => {
+		return ['fas', `${icon}`] as IconProp
+	}
+	const iconStyles = () => {
+		return [
+			{
+				marginTop: (iconPosition === 'bottom' && title) ? 6 : 0, 
+				marginRight: (iconPosition === 'left' && title) ? 6 : 0, 
+				marginBottom: (iconPosition === 'top' && title) ? 6 : 0,
+				marginLeft: (iconPosition === 'right' && title) ? 6 : 0 
+			},
+			(iconColor) ? {color: iconColor} : styles[`${buttonType}Text`]
+		];
+	}
 
   return (
     <TouchableOpacity
       onPress={onPress}
       style={[styles.button, styles.primary, buttonType && styles[buttonType], {flexDirection: flexDirection()}]}>
-      {icon && iconComponent}
-      {title && textComponent}
+      {
+				!!icon &&     
+				<FontAwesomeIcon 
+      		icon={iconArray()} 
+      		style={iconStyles()} 
+    		/>
+			}
+      {
+				!!title && 
+				<Text style={[styles.buttonText, buttonType && styles[`${buttonType}Text`]]}>
+      		{title}
+    		</Text>
+			}
     </TouchableOpacity>
   );
 };
@@ -76,12 +81,6 @@ const styles: Record<string, any> = StyleSheet.create({
     paddingHorizontal: 45,
     overflow: 'hidden',
   },
-	vertical: {
-    flexDirection: 'column'
-	},
-	horizontal: {
-    flexDirection: 'row'
-	},
   buttonText: {
     fontFamily: 'Geomanist-Bold',
     fontStyle: 'normal',
@@ -157,7 +156,7 @@ const styles: Record<string, any> = StyleSheet.create({
   linkText: {
     fontWeight: '400',
     color: 'hsl(211, 100%, 50%)',
-  }
+  },
 });
 
 export default AppButton;
