@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import {
   GestureResponderEvent,
   StyleSheet,
@@ -21,7 +21,18 @@ type Props = {
 	iconPosition?: typeof iconPositions[number];
 };
 
-const AppButton = ({onPress, title, buttonType = 'default', icon = '', iconColor, iconPosition = 'left'}: Props) => {
+const AppButton = ({onPress, title, buttonType = 'default', icon = '', iconColor = 'red', iconPosition = 'left'}: Props) => {
+
+	const [iconColorState, setIconColorState] = useState('color: "blue"');
+
+	useEffect(() => {
+		console.log(title)
+	}, [title])
+
+	const iconColorUpdate = () => {
+		setIconColorState(`color: ${iconColor}`);
+	}
+
   const flexDirection = () => {
     switch (iconPosition) {
       case 'top':
@@ -39,7 +50,7 @@ const AppButton = ({onPress, title, buttonType = 'default', icon = '', iconColor
     <FontAwesomeIcon 
       icon={['fas', `${icon}`] as IconProp} 
       style={[
-        styles[`${buttonType}Text`], 
+        (iconColor) ? `color: ${iconColor}` : styles[`${buttonType}Text`], 
         {
           marginTop: (iconPosition === 'bottom' && title) ? 6 : 0, 
           marginRight: (iconPosition === 'left' && title) ? 6 : 0, 
@@ -76,12 +87,6 @@ const styles: Record<string, any> = StyleSheet.create({
     paddingHorizontal: 45,
     overflow: 'hidden',
   },
-	vertical: {
-    flexDirection: 'column'
-	},
-	horizontal: {
-    flexDirection: 'row'
-	},
   buttonText: {
     fontFamily: 'Geomanist-Bold',
     fontStyle: 'normal',
