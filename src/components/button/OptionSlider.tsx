@@ -37,19 +37,7 @@ const OptionSlider = ({buttonType, options}: Props) => {
 	const [dimensions, setDimensions] = useState({x: 0, y: 0, width: 0, height: 0});
 	const [selectedOption, setSelectedOption] = useState(1)	// get from store
 	const [elements, setElements] = useState<Element[]>();
-	// const [translateXAnim, setTranslateXAnim] = useState(1)	// get from store
 
-  useEffect(() => {
-    if (selectorRef.current && optionsContainerRef.current) {
-      selectorRef.current.measureLayout(
-        optionsContainerRef.current,
-        (left: number, top: number, width: number, height: number) => {
-          setMeasure({ left, top, width, height });
-        }
-      );
-    }
-  }, [measure]);
-	
 	const setOpacity = () => {
     Animated.timing(
       opacityAnim,
@@ -61,23 +49,29 @@ const OptionSlider = ({buttonType, options}: Props) => {
       }
     ).start();
 	}
-	// useEffect(() => {
-  //   Animated.timing(
-  //     opacityAnim,
-  //     {
-  //       toValue: 1,
-	// 			delay: 1000,
-  //       duration: 200,
-	// 			useNativeDriver: true,
-  //     }
-  //   ).start();
-  // }, [measure.width])
+
+	const onPress = (i: number) => {
+		setSelectedOption(i);
+		options.forEach(option => option.iconColor = 'hsl(230, 8%, 44%)')
+		options[i].iconColor = 'hsl(233, 20%, 24%)'
+	}
+	
+  useEffect(() => {
+    if (selectorRef.current && optionsContainerRef.current) {
+      selectorRef.current.measureLayout(
+        optionsContainerRef.current,
+        (left: number, top: number, width: number, height: number) => {
+          setMeasure({ left, top, width, height });
+        }
+      );
+    }
+  }, [measure]);
 
 	useEffect(() => {
 		Animated.timing(
 			translateXAnim,
 			{
-				toValue: measure.width * selectedOption - 3, 
+				toValue: measure.width * selectedOption, 
 				duration: 200,
 				useNativeDriver: true
 			}
@@ -100,12 +94,6 @@ const OptionSlider = ({buttonType, options}: Props) => {
 		setElements(elements)
 		options[selectedOption].iconColor = 'hsl(233, 20%, 24%)'
 	}, [JSON.stringify(options)])
-
-	const onPress = (i: number) => {
-		setSelectedOption(i);
-		options.forEach(option => option.iconColor = 'hsl(230, 8%, 44%)')
-		options[i].iconColor = 'hsl(233, 20%, 24%)'
-	}
 		
 	return (
 		<>
@@ -157,7 +145,6 @@ const styles: Record<string, any> = StyleSheet.create({
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'center',
-		// transform: [{translateX: `${translateXAnim}`}],
 	},
 	selector: {
 		height: '80%',
