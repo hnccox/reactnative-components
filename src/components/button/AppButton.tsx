@@ -21,18 +21,7 @@ type Props = {
 	iconPosition?: typeof iconPositions[number];
 };
 
-const AppButton = ({onPress, title, buttonType = 'default', icon = '', iconColor = 'red', iconPosition = 'left'}: Props) => {
-
-	const [iconColorState, setIconColorState] = useState('color: "blue"');
-
-	useEffect(() => {
-		console.log(title)
-	}, [title])
-
-	const iconColorUpdate = () => {
-		setIconColorState(`color: ${iconColor}`);
-	}
-
+const AppButton = ({onPress, title, buttonType = 'default', icon = '', iconColor, iconPosition = 'left'}: Props) => {
   const flexDirection = () => {
     switch (iconPosition) {
       case 'top':
@@ -50,7 +39,7 @@ const AppButton = ({onPress, title, buttonType = 'default', icon = '', iconColor
     <FontAwesomeIcon 
       icon={['fas', `${icon}`] as IconProp} 
       style={[
-        (iconColor) ? `color: ${iconColor}` : styles[`${buttonType}Text`], 
+        styles[`${buttonType}Text`], 
         {
           marginTop: (iconPosition === 'bottom' && title) ? 6 : 0, 
           marginRight: (iconPosition === 'left' && title) ? 6 : 0, 
@@ -71,8 +60,19 @@ const AppButton = ({onPress, title, buttonType = 'default', icon = '', iconColor
     <TouchableOpacity
       onPress={onPress}
       style={[styles.button, styles.primary, buttonType && styles[buttonType], {flexDirection: flexDirection()}]}>
-      {icon && iconComponent}
-      {title && textComponent}
+      {
+				!!icon &&     
+				<FontAwesomeIcon 
+      		icon={iconArray()} 
+      		style={iconStyles()} 
+    		/>
+			}
+      {
+				!!title && 
+				<Text style={[styles.buttonText, buttonType && styles[`${buttonType}Text`]]}>
+      		{title}
+    		</Text>
+			}
     </TouchableOpacity>
   );
 };
@@ -162,7 +162,7 @@ const styles: Record<string, any> = StyleSheet.create({
   linkText: {
     fontWeight: '400',
     color: 'hsl(211, 100%, 50%)',
-  }
+  },
 });
 
 export default AppButton;
