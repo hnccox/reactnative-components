@@ -35,7 +35,7 @@ const OptionSlider = ({buttonType, options}: Props) => {
 
 	const [measure, setMeasure] = useState<any>({left: 0, top: 0, width: 0, height: 0});
 	const [dimensions, setDimensions] = useState({x: 0, y: 0, width: 0, height: 0});
-	const [selectedOption, setSelectedOption] = useState(1)	// get from store
+	const [selectedOption, setSelectedOption] = useState(4)	// get from store
 	const [elements, setElements] = useState<Element[]>();
 
 	const setOpacity = () => {

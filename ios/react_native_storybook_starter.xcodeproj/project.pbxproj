@@ -68,57 +68,57 @@
 		00E356EE1AD99517003FC87E /* react_native_storybook_starterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = react_native_storybook_starterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* react_native_storybook_starterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = react_native_storybook_starterTests.m; sourceTree = "<group>"; };
-		0708100EDF0746369E20C606 /* Geomanist-Thin.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Geomanist-Thin.otf"; path = "../src/assets/fonts/Geomanist-Thin.otf"; sourceTree = "<group>"; };
-		12AE7325CDE946E7AE73F8D9 /* Geomanist-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Geomanist-Light.otf"; path = "../src/assets/fonts/Geomanist-Light.otf"; sourceTree = "<group>"; };
+		0708100EDF0746369E20C606 /* Geomanist-Thin.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Geomanist-Thin.otf"; path = "../src/assets/fonts/Geomanist-Thin.otf"; sourceTree = "<group>"; };
+		12AE7325CDE946E7AE73F8D9 /* Geomanist-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Geomanist-Light.otf"; path = "../src/assets/fonts/Geomanist-Light.otf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* react_native_storybook_starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = react_native_storybook_starter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = react_native_storybook_starter/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = react_native_storybook_starter/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = react_native_storybook_starter/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = react_native_storybook_starter/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = react_native_storybook_starter/main.m; sourceTree = "<group>"; };
-		1486D985B2864B84B27210A6 /* geomanist-extralight-webfont.woff2 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-extralight-webfont.woff2"; path = "../src/assets/fonts/geomanist-extralight-webfont.woff2"; sourceTree = "<group>"; };
-		16AAA80639FA45D09C826781 /* Geomanist-Ultra.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Geomanist-Ultra.otf"; path = "../src/assets/fonts/Geomanist-Ultra.otf"; sourceTree = "<group>"; };
+		1486D985B2864B84B27210A6 /* geomanist-extralight-webfont.woff2 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-extralight-webfont.woff2"; path = "../src/assets/fonts/geomanist-extralight-webfont.woff2"; sourceTree = "<group>"; };
+		16AAA80639FA45D09C826781 /* Geomanist-Ultra.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Geomanist-Ultra.otf"; path = "../src/assets/fonts/Geomanist-Ultra.otf"; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-react_native_storybook_starter-react_native_storybook_starterTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-react_native_storybook_starter-react_native_storybook_starterTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1DD8CB338EBB4E5697327742 /* Geomanist-Book.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Geomanist-Book.otf"; path = "../src/assets/fonts/Geomanist-Book.otf"; sourceTree = "<group>"; };
-		218A0F9E4C4642319F63713F /* geomanist-black-webfont.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-black-webfont.ttf"; path = "../src/assets/fonts/geomanist-black-webfont.ttf"; sourceTree = "<group>"; };
-		24B443AEC1C14C95B1D79036 /* geomanist-black-webfont.woff2 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-black-webfont.woff2"; path = "../src/assets/fonts/geomanist-black-webfont.woff2"; sourceTree = "<group>"; };
-		30AAEC965555486EB3750FA6 /* geomanist-medium-webfont.woff */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-medium-webfont.woff"; path = "../src/assets/fonts/geomanist-medium-webfont.woff"; sourceTree = "<group>"; };
-		345E5D78267D497FAAD3D63B /* GreatVibes-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GreatVibes-Regular.otf"; path = "../src/assets/fonts/GreatVibes-Regular.otf"; sourceTree = "<group>"; };
-		3516996298A949FDAFF2C8DD /* geomanist-extralight-webfont.woff */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-extralight-webfont.woff"; path = "../src/assets/fonts/geomanist-extralight-webfont.woff"; sourceTree = "<group>"; };
-		3697F90630CB45B0AEEED8C3 /* geomanist-regular-webfont.woff */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-regular-webfont.woff"; path = "../src/assets/fonts/geomanist-regular-webfont.woff"; sourceTree = "<group>"; };
+		1DD8CB338EBB4E5697327742 /* Geomanist-Book.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Geomanist-Book.otf"; path = "../src/assets/fonts/Geomanist-Book.otf"; sourceTree = "<group>"; };
+		218A0F9E4C4642319F63713F /* geomanist-black-webfont.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-black-webfont.ttf"; path = "../src/assets/fonts/geomanist-black-webfont.ttf"; sourceTree = "<group>"; };
+		24B443AEC1C14C95B1D79036 /* geomanist-black-webfont.woff2 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-black-webfont.woff2"; path = "../src/assets/fonts/geomanist-black-webfont.woff2"; sourceTree = "<group>"; };
+		30AAEC965555486EB3750FA6 /* geomanist-medium-webfont.woff */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-medium-webfont.woff"; path = "../src/assets/fonts/geomanist-medium-webfont.woff"; sourceTree = "<group>"; };
+		345E5D78267D497FAAD3D63B /* GreatVibes-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "GreatVibes-Regular.otf"; path = "../src/assets/fonts/GreatVibes-Regular.otf"; sourceTree = "<group>"; };
+		3516996298A949FDAFF2C8DD /* geomanist-extralight-webfont.woff */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-extralight-webfont.woff"; path = "../src/assets/fonts/geomanist-extralight-webfont.woff"; sourceTree = "<group>"; };
+		3697F90630CB45B0AEEED8C3 /* geomanist-regular-webfont.woff */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-regular-webfont.woff"; path = "../src/assets/fonts/geomanist-regular-webfont.woff"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-react_native_storybook_starter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-react_native_storybook_starter.debug.xcconfig"; path = "Target Support Files/Pods-react_native_storybook_starter/Pods-react_native_storybook_starter.debug.xcconfig"; sourceTree = "<group>"; };
-		481F06FB07B94B23A8BC79E0 /* Geomanist-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Geomanist-Medium.otf"; path = "../src/assets/fonts/Geomanist-Medium.otf"; sourceTree = "<group>"; };
-		4C7BA2A5276745A59D65318D /* Geomanist-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Geomanist-Regular.otf"; path = "../src/assets/fonts/Geomanist-Regular.otf"; sourceTree = "<group>"; };
-		4EEC67E8C7D642F8BB3235EC /* geomanist-thin-webfont.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-thin-webfont.ttf"; path = "../src/assets/fonts/geomanist-thin-webfont.ttf"; sourceTree = "<group>"; };
-		52332665882646ECA7739BF2 /* Pacifico.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Pacifico.ttf; path = ../src/assets/fonts/Pacifico.ttf; sourceTree = "<group>"; };
+		481F06FB07B94B23A8BC79E0 /* Geomanist-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Geomanist-Medium.otf"; path = "../src/assets/fonts/Geomanist-Medium.otf"; sourceTree = "<group>"; };
+		4C7BA2A5276745A59D65318D /* Geomanist-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Geomanist-Regular.otf"; path = "../src/assets/fonts/Geomanist-Regular.otf"; sourceTree = "<group>"; };
+		4EEC67E8C7D642F8BB3235EC /* geomanist-thin-webfont.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-thin-webfont.ttf"; path = "../src/assets/fonts/geomanist-thin-webfont.ttf"; sourceTree = "<group>"; };
+		52332665882646ECA7739BF2 /* Pacifico.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Pacifico.ttf; path = ../src/assets/fonts/Pacifico.ttf; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-react_native_storybook_starter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-react_native_storybook_starter.release.xcconfig"; path = "Target Support Files/Pods-react_native_storybook_starter/Pods-react_native_storybook_starter.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-react_native_storybook_starter-react_native_storybook_starterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-react_native_storybook_starter-react_native_storybook_starterTests.debug.xcconfig"; path = "Target Support Files/Pods-react_native_storybook_starter-react_native_storybook_starterTests/Pods-react_native_storybook_starter-react_native_storybook_starterTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5DC275868358401789F351A9 /* geomanist-light-webfont.woff */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-light-webfont.woff"; path = "../src/assets/fonts/geomanist-light-webfont.woff"; sourceTree = "<group>"; };
+		5DC275868358401789F351A9 /* geomanist-light-webfont.woff */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-light-webfont.woff"; path = "../src/assets/fonts/geomanist-light-webfont.woff"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-react_native_storybook_starter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-react_native_storybook_starter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6545D0505B6B4D47B5400156 /* geomanist-regular-webfont.woff2 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-regular-webfont.woff2"; path = "../src/assets/fonts/geomanist-regular-webfont.woff2"; sourceTree = "<group>"; };
-		655ADB4DA12A4CFC9ED4D01A /* Geomanist-ExtraLight.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Geomanist-ExtraLight.otf"; path = "../src/assets/fonts/Geomanist-ExtraLight.otf"; sourceTree = "<group>"; };
-		682F3B7626D2443F95A7F87A /* geomanist-regular-webfont.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-regular-webfont.ttf"; path = "../src/assets/fonts/geomanist-regular-webfont.ttf"; sourceTree = "<group>"; };
-		6CF11975ACA443CA9152E684 /* geomanist-medium-webfont.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-medium-webfont.ttf"; path = "../src/assets/fonts/geomanist-medium-webfont.ttf"; sourceTree = "<group>"; };
-		6E9453FB3152463B8D72A900 /* geomanist-thin-webfont.woff */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-thin-webfont.woff"; path = "../src/assets/fonts/geomanist-thin-webfont.woff"; sourceTree = "<group>"; };
-		7CF077DB2AFD447B96CB997F /* geomanist-light-webfont.woff2 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-light-webfont.woff2"; path = "../src/assets/fonts/geomanist-light-webfont.woff2"; sourceTree = "<group>"; };
+		6545D0505B6B4D47B5400156 /* geomanist-regular-webfont.woff2 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-regular-webfont.woff2"; path = "../src/assets/fonts/geomanist-regular-webfont.woff2"; sourceTree = "<group>"; };
+		655ADB4DA12A4CFC9ED4D01A /* Geomanist-ExtraLight.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Geomanist-ExtraLight.otf"; path = "../src/assets/fonts/Geomanist-ExtraLight.otf"; sourceTree = "<group>"; };
+		682F3B7626D2443F95A7F87A /* geomanist-regular-webfont.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-regular-webfont.ttf"; path = "../src/assets/fonts/geomanist-regular-webfont.ttf"; sourceTree = "<group>"; };
+		6CF11975ACA443CA9152E684 /* geomanist-medium-webfont.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-medium-webfont.ttf"; path = "../src/assets/fonts/geomanist-medium-webfont.ttf"; sourceTree = "<group>"; };
+		6E9453FB3152463B8D72A900 /* geomanist-thin-webfont.woff */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-thin-webfont.woff"; path = "../src/assets/fonts/geomanist-thin-webfont.woff"; sourceTree = "<group>"; };
+		7CF077DB2AFD447B96CB997F /* geomanist-light-webfont.woff2 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-light-webfont.woff2"; path = "../src/assets/fonts/geomanist-light-webfont.woff2"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = react_native_storybook_starter/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		88AEE2E6C8DA461DB3218377 /* Geomanist-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Geomanist-Black.otf"; path = "../src/assets/fonts/Geomanist-Black.otf"; sourceTree = "<group>"; };
+		88AEE2E6C8DA461DB3218377 /* Geomanist-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Geomanist-Black.otf"; path = "../src/assets/fonts/Geomanist-Black.otf"; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-react_native_storybook_starter-react_native_storybook_starterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-react_native_storybook_starter-react_native_storybook_starterTests.release.xcconfig"; path = "Target Support Files/Pods-react_native_storybook_starter-react_native_storybook_starterTests/Pods-react_native_storybook_starter-react_native_storybook_starterTests.release.xcconfig"; sourceTree = "<group>"; };
-		919923BA9B894098BB5D51AE /* geomanist-ultra-webfont.woff2 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-ultra-webfont.woff2"; path = "../src/assets/fonts/geomanist-ultra-webfont.woff2"; sourceTree = "<group>"; };
-		9F87500C38364B4D95963551 /* geomanist-medium-webfont.woff2 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-medium-webfont.woff2"; path = "../src/assets/fonts/geomanist-medium-webfont.woff2"; sourceTree = "<group>"; };
-		A4676A8514C24AAD82684549 /* geomanist-black-webfont.woff */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-black-webfont.woff"; path = "../src/assets/fonts/geomanist-black-webfont.woff"; sourceTree = "<group>"; };
-		A9176B4486964B55A5C2BCEF /* Geomanist-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Geomanist-Bold.otf"; path = "../src/assets/fonts/Geomanist-Bold.otf"; sourceTree = "<group>"; };
-		AF3CC0BD086B44918696D93F /* geomanist-bold-webfont.woff */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-bold-webfont.woff"; path = "../src/assets/fonts/geomanist-bold-webfont.woff"; sourceTree = "<group>"; };
-		B89B230656CD429286DB3758 /* geomanist-book-webfont.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-book-webfont.ttf"; path = "../src/assets/fonts/geomanist-book-webfont.ttf"; sourceTree = "<group>"; };
-		C305AE52555B4C4CAA25E931 /* geomanist-extralight-webfont.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-extralight-webfont.ttf"; path = "../src/assets/fonts/geomanist-extralight-webfont.ttf"; sourceTree = "<group>"; };
-		C4B0DE4EED354C688C26B28A /* geomanist-book-webfont.woff2 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-book-webfont.woff2"; path = "../src/assets/fonts/geomanist-book-webfont.woff2"; sourceTree = "<group>"; };
-		C5C66B2D80DD4D0FA6811062 /* geomanist-thin-webfont.woff2 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-thin-webfont.woff2"; path = "../src/assets/fonts/geomanist-thin-webfont.woff2"; sourceTree = "<group>"; };
-		CA52A16E744E448EBAF63B54 /* geomanist-light-webfont.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-light-webfont.ttf"; path = "../src/assets/fonts/geomanist-light-webfont.ttf"; sourceTree = "<group>"; };
-		D43A7FA188AE408596DB61EF /* geomanist-ultra-webfont.woff */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-ultra-webfont.woff"; path = "../src/assets/fonts/geomanist-ultra-webfont.woff"; sourceTree = "<group>"; };
-		D8C7454A000A4083B411F945 /* geomanist-ultra-webfont.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-ultra-webfont.ttf"; path = "../src/assets/fonts/geomanist-ultra-webfont.ttf"; sourceTree = "<group>"; };
-		DDBADAF10C7D4D4E972E2007 /* geomanist-bold-webfont.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-bold-webfont.ttf"; path = "../src/assets/fonts/geomanist-bold-webfont.ttf"; sourceTree = "<group>"; };
-		DDDD71C3C89542EF88C0CA5B /* geomanist-book-webfont.woff */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-book-webfont.woff"; path = "../src/assets/fonts/geomanist-book-webfont.woff"; sourceTree = "<group>"; };
-		DE3C0A9E8CA7488992702361 /* geomanist-bold-webfont.woff2 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-bold-webfont.woff2"; path = "../src/assets/fonts/geomanist-bold-webfont.woff2"; sourceTree = "<group>"; };
+		919923BA9B894098BB5D51AE /* geomanist-ultra-webfont.woff2 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-ultra-webfont.woff2"; path = "../src/assets/fonts/geomanist-ultra-webfont.woff2"; sourceTree = "<group>"; };
+		9F87500C38364B4D95963551 /* geomanist-medium-webfont.woff2 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-medium-webfont.woff2"; path = "../src/assets/fonts/geomanist-medium-webfont.woff2"; sourceTree = "<group>"; };
+		A4676A8514C24AAD82684549 /* geomanist-black-webfont.woff */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-black-webfont.woff"; path = "../src/assets/fonts/geomanist-black-webfont.woff"; sourceTree = "<group>"; };
+		A9176B4486964B55A5C2BCEF /* Geomanist-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Geomanist-Bold.otf"; path = "../src/assets/fonts/Geomanist-Bold.otf"; sourceTree = "<group>"; };
+		AF3CC0BD086B44918696D93F /* geomanist-bold-webfont.woff */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-bold-webfont.woff"; path = "../src/assets/fonts/geomanist-bold-webfont.woff"; sourceTree = "<group>"; };
+		B89B230656CD429286DB3758 /* geomanist-book-webfont.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-book-webfont.ttf"; path = "../src/assets/fonts/geomanist-book-webfont.ttf"; sourceTree = "<group>"; };
+		C305AE52555B4C4CAA25E931 /* geomanist-extralight-webfont.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-extralight-webfont.ttf"; path = "../src/assets/fonts/geomanist-extralight-webfont.ttf"; sourceTree = "<group>"; };
+		C4B0DE4EED354C688C26B28A /* geomanist-book-webfont.woff2 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-book-webfont.woff2"; path = "../src/assets/fonts/geomanist-book-webfont.woff2"; sourceTree = "<group>"; };
+		C5C66B2D80DD4D0FA6811062 /* geomanist-thin-webfont.woff2 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-thin-webfont.woff2"; path = "../src/assets/fonts/geomanist-thin-webfont.woff2"; sourceTree = "<group>"; };
+		CA52A16E744E448EBAF63B54 /* geomanist-light-webfont.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-light-webfont.ttf"; path = "../src/assets/fonts/geomanist-light-webfont.ttf"; sourceTree = "<group>"; };
+		D43A7FA188AE408596DB61EF /* geomanist-ultra-webfont.woff */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-ultra-webfont.woff"; path = "../src/assets/fonts/geomanist-ultra-webfont.woff"; sourceTree = "<group>"; };
+		D8C7454A000A4083B411F945 /* geomanist-ultra-webfont.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-ultra-webfont.ttf"; path = "../src/assets/fonts/geomanist-ultra-webfont.ttf"; sourceTree = "<group>"; };
+		DDBADAF10C7D4D4E972E2007 /* geomanist-bold-webfont.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-bold-webfont.ttf"; path = "../src/assets/fonts/geomanist-bold-webfont.ttf"; sourceTree = "<group>"; };
+		DDDD71C3C89542EF88C0CA5B /* geomanist-book-webfont.woff */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-book-webfont.woff"; path = "../src/assets/fonts/geomanist-book-webfont.woff"; sourceTree = "<group>"; };
+		DE3C0A9E8CA7488992702361 /* geomanist-bold-webfont.woff2 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "geomanist-bold-webfont.woff2"; path = "../src/assets/fonts/geomanist-bold-webfont.woff2"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -257,7 +257,6 @@
 				52332665882646ECA7739BF2 /* Pacifico.ttf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -282,8 +281,8 @@
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */,
 				F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */,
+				4BFE4402D5603B0B3C0C48F1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -305,8 +304,8 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
 				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+				EED834F34C7A6E4C7C9DCD0D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -323,7 +322,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
@@ -427,21 +426,21 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
+		4BFE4402D5603B0B3C0C48F1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-react_native_storybook_starter/Pods-react_native_storybook_starter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-react_native_storybook_starter-react_native_storybook_starterTests/Pods-react_native_storybook_starter-react_native_storybook_starterTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-react_native_storybook_starter/Pods-react_native_storybook_starter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-react_native_storybook_starter-react_native_storybook_starterTests/Pods-react_native_storybook_starter-react_native_storybook_starterTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-react_native_storybook_starter/Pods-react_native_storybook_starter-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-react_native_storybook_starter-react_native_storybook_starterTests/Pods-react_native_storybook_starter-react_native_storybook_starterTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
@@ -488,23 +487,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-react_native_storybook_starter-react_native_storybook_starterTests/Pods-react_native_storybook_starter-react_native_storybook_starterTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-react_native_storybook_starter-react_native_storybook_starterTests/Pods-react_native_storybook_starter-react_native_storybook_starterTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-react_native_storybook_starter-react_native_storybook_starterTests/Pods-react_native_storybook_starter-react_native_storybook_starterTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -520,6 +502,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-react_native_storybook_starter/Pods-react_native_storybook_starter-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EED834F34C7A6E4C7C9DCD0D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-react_native_storybook_starter/Pods-react_native_storybook_starter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-react_native_storybook_starter/Pods-react_native_storybook_starter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-react_native_storybook_starter/Pods-react_native_storybook_starter-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
@@ -593,6 +592,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-react_native_storybook_starter-react_native_storybook_starterTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -620,6 +620,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-react_native_storybook_starter-react_native_storybook_starterTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = react_native_storybook_starterTests/Info.plist;
@@ -653,6 +654,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -678,6 +680,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
