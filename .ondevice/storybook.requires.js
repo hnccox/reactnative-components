@@ -29,7 +29,6 @@ argsEnhancers.forEach((enhancer) => addArgsEnhancer(enhancer));
 const getStories = () => {
 	return [
 		require("../src/components/button/AppButton.stories.tsx"),
-		require("../src/components/button/AppSelectButton.stories.tsx"),
 		require("../src/components/button/AppButtonGroup.stories.tsx"),
 		require("../src/components/button/OptionSlider.stories.tsx"),
 		// require("../src/components/calendar/Calendar.stories.tsx"),
