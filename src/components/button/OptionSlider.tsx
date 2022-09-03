@@ -27,6 +27,7 @@ const OptionSlider = (props: Props) => {
 	const opacityAnim = useRef(new Animated.Value(0)).current
 	const translateXAnim = useRef(new Animated.Value(0)).current // calculate from store option
 
+	const [measure, setMeasure] = useState<any>({left: 0, top: 0, width: 0, height: 0});
 	const [dimensions, setDimensions] = useState({x: 0, y: 0, width: 0, height: 0});
 	const [selectedOption, setSelectedOption] = useState(4)	// get from store
 	const [elements, setElements] = useState<Element[]>();
