@@ -4,16 +4,10 @@ import {
 	Animated,
   StyleSheet,
 	View,
-  Text,
-  TouchableOpacity,
-	NativeEventEmitter,
-	ColorPropType,
 } from 'react-native';
 
 import AppButton from './AppButton';
-
-export const buttonTypes = ["default", "primary", "secondary", "success", "danger", "warning", "info", "light", "dark", "link"] as const
-export const iconPositions = ["top", "left", "right", "bottom"] as const
+import { buttonTypes, iconPositions } from './AppButton';
 
 type SelectOption = {
 		title?: string;
@@ -52,8 +46,6 @@ const OptionSlider = ({buttonType, options}: Props) => {
 
 	const onPress = (i: number) => {
 		setSelectedOption(i);
-		options.forEach(option => option.iconColor = 'hsl(230, 8%, 44%)')
-		options[i].iconColor = 'hsl(233, 20%, 24%)'
 	}
 	
   useEffect(() => {
@@ -78,22 +70,23 @@ const OptionSlider = ({buttonType, options}: Props) => {
 		).start(setOpacity);
 	}, [selectedOption, measure.width])
 
+
 	useEffect(() => {
-		const elements = []
-		for(let i = 0; i < options.length; i++) {
-			elements.push(
-				<AppButton key={i} onPress={() => onPress(i)} buttonType={'link'} title={options[i].title} icon={options[i].icon} iconColor={options[i].iconColor} iconPosition={options[i].iconPosition} />
-			);
-			if(i !== options.length - 1) {
-				elements.push(
-					<View key = {`divider${i}`} style={[styles.divider]}>
-					</View>
-				)
-			}
-		}
+		const elements = options.map((option, i) => (
+			<React.Fragment key={i}>
+				<AppButton
+					onPress={() => onPress(i)} buttonType={'link'}
+					title={option.title} icon={option.icon}
+					iconColor={selectedOption === i ? 'hsl(233, 20%, 24%)' : 'hsl(230, 8%, 44%)'}
+					iconPosition={option.iconPosition}
+				/>
+				{(i < options.length - 1) &&
+					<View style={[styles.divider]}/>
+				}
+			</React.Fragment>
+		))
 		setElements(elements)
-		options[selectedOption].iconColor = 'hsl(233, 20%, 24%)'
-	}, [JSON.stringify(options)])
+	}, [selectedOption])
 		
 	return (
 		<>
