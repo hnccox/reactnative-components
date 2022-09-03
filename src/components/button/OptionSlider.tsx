@@ -1,19 +1,12 @@
 import React, {useState, useRef, useEffect} from 'react';
 import {
-  GestureResponderEvent,
 	Animated,
   StyleSheet,
 	View,
-  Text,
-  TouchableOpacity,
-	NativeEventEmitter,
-	ColorPropType,
 } from 'react-native';
 
 import AppButton from './AppButton';
-
-export const buttonTypes = ["default", "primary", "secondary", "success", "danger", "warning", "info", "light", "dark", "link"] as const
-export const iconPositions = ["top", "left", "right", "bottom"] as const
+import { buttonTypes, iconPositions } from './AppButton';
 
 type SelectOption = {
 		title?: string;
@@ -27,7 +20,7 @@ type Props = {
 	options: SelectOption[]
 };
 
-const OptionSlider = ({buttonType, options}: Props) => {
+const OptionSlider = (props: Props) => {
 	const optionsContainerRef = useRef<any>(null);
 	const selectorRef = useRef<any>(null);
 	const opacityAnim = useRef(new Animated.Value(0)).current
@@ -36,6 +29,7 @@ const OptionSlider = ({buttonType, options}: Props) => {
 	const [measure, setMeasure] = useState<any>({left: 0, top: 0, width: 0, height: 0});
 	const [dimensions, setDimensions] = useState({x: 0, y: 0, width: 0, height: 0});
 	const [selectedOption, setSelectedOption] = useState(4)	// get from store
+	const [options, setOptions] = useState<any[]>(props.options);
 	const [elements, setElements] = useState<Element[]>();
 
 	const setOpacity = () => {
@@ -52,8 +46,11 @@ const OptionSlider = ({buttonType, options}: Props) => {
 
 	const onPress = (i: number) => {
 		setSelectedOption(i);
-		options.forEach(option => option.iconColor = 'hsl(230, 8%, 44%)')
-		options[i].iconColor = 'hsl(233, 20%, 24%)'
+		setOptions(
+			options.map((option, optionIdx) => {
+				return (optionIdx === i) ? {...option, iconColor: 'hsl(233, 20%, 24%)'} : {...option, iconColor: 'hsl(230, 8%, 44%)'}
+			})
+		)
 	}
 	
   useEffect(() => {
@@ -86,13 +83,17 @@ const OptionSlider = ({buttonType, options}: Props) => {
 			);
 			if(i !== options.length - 1) {
 				elements.push(
-					<View key = {`divider${i}`} style={[styles.divider]}>
+					<View key={`divider${i}`} style={[styles.divider]}>
 					</View>
 				)
 			}
 		}
 		setElements(elements)
-		options[selectedOption].iconColor = 'hsl(233, 20%, 24%)'
+		setOptions(
+			options.map((option, optionIdx) => {
+				return (optionIdx === selectedOption) ? {...option, iconColor: 'hsl(233, 20%, 24%)'} : {...option, iconColor: 'hsl(230, 8%, 44%)'}
+			})
+		)
 	}, [JSON.stringify(options)])
 		
 	return (
