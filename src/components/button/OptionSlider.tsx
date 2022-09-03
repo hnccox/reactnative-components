@@ -26,11 +26,8 @@ const OptionSlider = (props: Props) => {
 	const opacityAnim = useRef(new Animated.Value(0)).current
 	const translateXAnim = useRef(new Animated.Value(0)).current // calculate from store option
 
-	const [measure, setMeasure] = useState<any>({left: 0, top: 0, width: 0, height: 0});
 	const [dimensions, setDimensions] = useState({x: 0, y: 0, width: 0, height: 0});
 	const [selectedOption, setSelectedOption] = useState(4)	// get from store
-	const [options, setOptions] = useState<any[]>(props.options);
-	const [elements, setElements] = useState<Element[]>();
 
 	const setOpacity = () => {
     Animated.timing(
@@ -46,55 +43,30 @@ const OptionSlider = (props: Props) => {
 
 	const onPress = (i: number) => {
 		setSelectedOption(i);
-		setOptions(
-			options.map((option, optionIdx) => {
-				return (optionIdx === i) ? {...option, iconColor: 'hsl(233, 20%, 24%)'} : {...option, iconColor: 'hsl(230, 8%, 44%)'}
-			})
-		)
 	}
-	
-  useEffect(() => {
-    if (selectorRef.current && optionsContainerRef.current) {
-      selectorRef.current.measureLayout(
-        optionsContainerRef.current,
-        (left: number, top: number, width: number, height: number) => {
-          setMeasure({ left, top, width, height });
-        }
-      );
-    }
-  }, [measure]);
 
 	useEffect(() => {
-		Animated.timing(
-			translateXAnim,
-			{
-				toValue: measure.width * selectedOption, 
-				duration: 200,
-				useNativeDriver: true
-			}
-		).start(setOpacity);
-	}, [selectedOption, measure.width])
+		setAnimation(selectedOption)
+	}, [selectedOption])
 
-	useEffect(() => {
-		const elements = []
-		for(let i = 0; i < options.length; i++) {
-			elements.push(
-				<AppButton key={i} onPress={() => onPress(i)} buttonType={'link'} title={options[i].title} icon={options[i].icon} iconColor={options[i].iconColor} iconPosition={options[i].iconPosition} />
-			);
-			if(i !== options.length - 1) {
-				elements.push(
-					<View key={`divider${i}`} style={[styles.divider]}>
-					</View>
-				)
-			}
+	const setAnimation = (optionIdx: number) => {
+		if (!selectorRef.current || !optionsContainerRef.current) {
+			return
 		}
-		setElements(elements)
-		setOptions(
-			options.map((option, optionIdx) => {
-				return (optionIdx === selectedOption) ? {...option, iconColor: 'hsl(233, 20%, 24%)'} : {...option, iconColor: 'hsl(230, 8%, 44%)'}
-			})
-		)
-	}, [JSON.stringify(options)])
+		selectorRef.current.measureLayout(
+			optionsContainerRef.current,
+			(left: number, top: number, width: number) => {
+				Animated.timing(
+					translateXAnim,
+					{
+						toValue: width * optionIdx,
+						duration: 200,
+						useNativeDriver: false,
+					}
+				).start(setOpacity);
+			}
+		);
+	}
 		
 	return (
 		<>
@@ -105,13 +77,30 @@ const OptionSlider = (props: Props) => {
 				style={[styles.container, {position: 'absolute', margin: 'auto'}]}
 			>
 				<Animated.View ref={selectorRef}
-					style={[styles.selected, {width: ((dimensions.width - (options.length - 1)) / options.length), transform: [{translateX: translateXAnim}]}, {opacity: (measure.width > 0) ? opacityAnim: 0}]}>
+					style={[
+						styles.selected,
+						{width: ((dimensions.width - (options.length - 1)) / options.length), transform: [{translateX: translateXAnim}]},
+						{opacity: opacityAnim || 0}
+					]}>
 					<View style={[styles.selector]}>
 					</View>
 				</Animated.View>
 				<Animated.View
-					style={[styles.elements, {opacity: (measure.width > 0) ? opacityAnim: 0}]}>
-					{elements}
+					style={[styles.elements, {opacity: opacityAnim || 0}]}>
+					{options.map((option, i) => (
+						<React.Fragment key={i}>
+							<AppButton
+								onPress={() => onPress(i)} buttonType={'link'}
+								title={options[i].title} icon={options[i].icon}
+								iconColor={selectedOption === i ? 'hsl(233, 20%, 24%)' : 'hsl(230, 8%, 44%)'}
+								iconPosition={options[i].iconPosition}
+							/>
+							{(i < options.length - 1) &&
+                                <View style={[styles.divider]}>
+                                </View>
+							}
+						</React.Fragment>
+					))}
 				</Animated.View>
 			</View>
 		</>
