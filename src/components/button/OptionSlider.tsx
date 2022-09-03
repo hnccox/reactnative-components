@@ -27,9 +27,15 @@ const OptionSlider = (props: Props) => {
 	const opacityAnim = useRef(new Animated.Value(0)).current
 	const translateXAnim = useRef(new Animated.Value(0)).current // calculate from store option
 
+	const [measure, setMeasure] = useState<any>({left: 0, top: 0, width: 0, height: 0});
 	const [dimensions, setDimensions] = useState({x: 0, y: 0, width: 0, height: 0});
-	const [selectedOption, setSelectedOption] = useState(1)	// get from store
+	const [selectedOption, setSelectedOption] = useState(4)	// get from store
+	const [elements, setElements] = useState<Element[]>();
 
+	const onPress = (i: number) => {
+		setSelectedOption(i);
+	}
+	
 	const setOpacity = () => {
     Animated.timing(
       opacityAnim,
@@ -42,32 +48,44 @@ const OptionSlider = (props: Props) => {
     ).start();
 	}
 
-	const onPress = (i: number) => {
-		setSelectedOption(i);
-	}
+  useEffect(() => {
+    if (selectorRef.current && optionsContainerRef.current) {
+      selectorRef.current.measureLayout(
+        optionsContainerRef.current,
+        (left: number, top: number, width: number, height: number) => {
+          setMeasure({ left, top, width, height });
+        }
+      );
+    }
+  }, [measure]);
 
 	useEffect(() => {
-		setAnimation(selectedOption)
-	}, [selectedOption])
-
-	const setAnimation = (optionIdx: number) => {
-		if (!selectorRef.current || !optionsContainerRef.current) {
-			return
-		}
-		selectorRef.current.measureLayout(
-			optionsContainerRef.current,
-			(left: number, top: number, width: number) => {
-				Animated.timing(
-					translateXAnim,
-					{
-						toValue: width * optionIdx,
-						duration: 200,
-						useNativeDriver: true,
-					}
-				).start(setOpacity);
+		Animated.timing(
+			translateXAnim,
+			{
+				toValue: measure.width * selectedOption, 
+				duration: 200,
+				useNativeDriver: true
 			}
-		);
-	}
+		).start(setOpacity);
+	}, [selectedOption, measure.width])
+
+	useEffect(() => {
+		const elements = options.map((option, i) => (
+			<React.Fragment key={i}>
+				<AppButton
+					onPress={() => onPress(i)} buttonType={'link'}
+					title={option.title} icon={option.icon}
+					iconColor={selectedOption === i ? 'hsl(233, 20%, 24%)' : 'hsl(230, 8%, 44%)'}
+					iconPosition={option.iconPosition}
+				/>
+				{(i < options.length - 1) &&
+					<View style={[styles.divider]}/>
+				}
+			</React.Fragment>
+		))
+		setElements(elements)
+	}, [selectedOption])
 		
 	return (
 		<>
