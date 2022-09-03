@@ -1,6 +1,5 @@
 import React, {useState, useRef, useEffect} from 'react';
 import {
-  GestureResponderEvent,
 	Animated,
   StyleSheet,
 	View,
@@ -21,13 +20,13 @@ type Props = {
 	options: SelectOption[]
 };
 
-const OptionSlider = ({buttonType, options}: Props) => {
+const OptionSlider = (props: Props) => {
+	const options = props.options
 	const optionsContainerRef = useRef<any>(null);
 	const selectorRef = useRef<any>(null);
 	const opacityAnim = useRef(new Animated.Value(0)).current
 	const translateXAnim = useRef(new Animated.Value(0)).current // calculate from store option
 
-	const [measure, setMeasure] = useState<any>({left: 0, top: 0, width: 0, height: 0});
 	const [dimensions, setDimensions] = useState({x: 0, y: 0, width: 0, height: 0});
 	const [selectedOption, setSelectedOption] = useState(4)	// get from store
 	const [elements, setElements] = useState<Element[]>();
@@ -96,13 +95,29 @@ const OptionSlider = ({buttonType, options}: Props) => {
 				style={[styles.container, {position: 'absolute', margin: 'auto'}]}
 			>
 				<Animated.View ref={selectorRef}
-					style={[styles.selected, {width: ((dimensions.width - (options.length - 1)) / options.length), transform: [{translateX: translateXAnim}]}, {opacity: (measure.width > 0) ? opacityAnim: 0}]}>
+					style={[
+						styles.selected,
+						{width: ((dimensions.width - (options.length - 1)) / options.length), transform: [{translateX: translateXAnim}]},
+						{opacity: opacityAnim || 0}
+					]}>
 					<View style={[styles.selector]}>
 					</View>
 				</Animated.View>
 				<Animated.View
-					style={[styles.elements, {opacity: (measure.width > 0) ? opacityAnim: 0}]}>
-					{elements}
+					style={[styles.elements, {opacity: opacityAnim || 0}]}>
+					{options.map((option, i) => (
+						<React.Fragment key={i}>
+							<AppButton
+								onPress={() => onPress(i)} buttonType={'link'}
+								title={options[i].title} icon={options[i].icon}
+								iconColor={selectedOption === i ? 'hsl(233, 20%, 24%)' : 'hsl(230, 8%, 44%)'}
+								iconPosition={options[i].iconPosition}
+							/>
+							{(i < options.length - 1) &&
+                <View style={[styles.divider]} />
+							}
+						</React.Fragment>
+					))}
 				</Animated.View>
 			</View>
 		</>
