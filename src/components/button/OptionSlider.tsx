@@ -21,13 +21,14 @@ type Props = {
 };
 
 const OptionSlider = (props: Props) => {
+	const options = props.options
 	const optionsContainerRef = useRef<any>(null);
 	const selectorRef = useRef<any>(null);
 	const opacityAnim = useRef(new Animated.Value(0)).current
 	const translateXAnim = useRef(new Animated.Value(0)).current // calculate from store option
 
 	const [dimensions, setDimensions] = useState({x: 0, y: 0, width: 0, height: 0});
-	const [selectedOption, setSelectedOption] = useState(4)	// get from store
+	const [selectedOption, setSelectedOption] = useState(1)	// get from store
 
 	const setOpacity = () => {
     Animated.timing(
@@ -61,7 +62,7 @@ const OptionSlider = (props: Props) => {
 					{
 						toValue: width * optionIdx,
 						duration: 200,
-						useNativeDriver: false,
+						useNativeDriver: true,
 					}
 				).start(setOpacity);
 			}
@@ -96,8 +97,7 @@ const OptionSlider = (props: Props) => {
 								iconPosition={options[i].iconPosition}
 							/>
 							{(i < options.length - 1) &&
-                                <View style={[styles.divider]}>
-                                </View>
+                <View style={[styles.divider]} />
 							}
 						</React.Fragment>
 					))}
