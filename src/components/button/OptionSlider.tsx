@@ -32,6 +32,10 @@ const OptionSlider = ({buttonType, options}: Props) => {
 	const [selectedOption, setSelectedOption] = useState(4)	// get from store
 	const [elements, setElements] = useState<Element[]>();
 
+	const onPress = (i: number) => {
+		setSelectedOption(i);
+	}
+	
 	const setOpacity = () => {
     Animated.timing(
       opacityAnim,
@@ -44,10 +48,6 @@ const OptionSlider = ({buttonType, options}: Props) => {
     ).start();
 	}
 
-	const onPress = (i: number) => {
-		setSelectedOption(i);
-	}
-	
   useEffect(() => {
     if (selectorRef.current && optionsContainerRef.current) {
       selectorRef.current.measureLayout(
@@ -69,7 +69,6 @@ const OptionSlider = ({buttonType, options}: Props) => {
 			}
 		).start(setOpacity);
 	}, [selectedOption, measure.width])
-
 
 	useEffect(() => {
 		const elements = options.map((option, i) => (
