@@ -41,6 +41,18 @@ Default.args = {
 			icon: 'person-walking',
 			iconColor: 'hsl(230, 8%, 44%)',
 			iconPosition: undefined
+		},
+		{
+			title: undefined,
+			icon: 'car',
+			iconColor: 'hsl(230, 8%, 44%)',		// unselected: hsl(230, 8%, 44%), selected: hsl(233, 20%, 24%)
+			iconPosition: undefined
+		},
+		{
+			title: undefined,
+			icon: 'person-walking',
+			iconColor: 'hsl(230, 8%, 44%)',
+			iconPosition: undefined
 		}
 	]
 };

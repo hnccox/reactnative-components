@@ -76,7 +76,7 @@ const OptionSlider = (props: Props) => {
 	useEffect(() => {
 		const optionElements = options.map((option, i) => (
 			<React.Fragment key={i}>
-				<View style={{borderColor: 'hsla(0, 0%, 0%, 0.12)', borderLeftWidth: (i === 0 || selectedOption === i || selectedOption === i - 1) ? 0 : 0.5, borderRightWidth: (i === options.length - 1 || selectedOption === i || selectedOption === i + 1) ? 0 : 0.5}}>
+				<View style={{borderLeftColor: (selectedOption === i || selectedOption === i - 1) ? 'hsla(0, 0%, 0%, 0)' : 'hsla(0, 0%, 0%, 0.12)', borderRightColor: (selectedOption === i || selectedOption === i + 1) ? 'hsla(0, 0%, 0%, 0)' : 'hsla(0, 0%, 0%, 0.12)', borderLeftWidth: (i === 0) ? 0 : 0.5, borderRightWidth: (i === options.length - 1) ? 0 : 0.5}}>
 				<AppButton
 					onPress={() => onPress(i)} buttonType={'link'}
 					title={option.title} icon={option.icon}
