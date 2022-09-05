@@ -2,16 +2,10 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {ComponentMeta, ComponentStory} from '@storybook/react';
 
+import tw from 'twrnc';
+import { styles }	 from '../../constants/globalStyles';
 import OptionSlider from './OptionSlider';
 // import { buttonTypes } from './OptionSlider';
-
-const styles = StyleSheet.create({
-  position: {
-    position: 'absolute',
-    top: 20,
-    left: 20,
-  },
-});
 
 export default {
   title: 'components/OptionSlider',
@@ -22,7 +16,7 @@ export default {
 } as ComponentMeta<typeof OptionSlider>;
 
 export const Default: ComponentStory<typeof OptionSlider> = (args: JSX.IntrinsicAttributes & { buttonType?: "default" | "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "light" | "dark" | "link" | undefined; options: { title?: string | undefined; icon?: string | undefined; iconColor?: string | undefined; iconPosition?: "bottom" | "right" | "top" | "left" | undefined; }[]; }) => (
-  <View style={styles.position}>
+  <View style={tw`absolute top-2 left-20`}>
     <OptionSlider {...args} />
   </View>
 );

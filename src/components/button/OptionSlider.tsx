@@ -3,7 +3,10 @@ import {
 	Animated,
   StyleSheet,
 	View,
+	Text,
 } from 'react-native';
+
+import tw from 'twrnc';
 
 import AppButton from './AppButton';
 import { buttonTypes, iconPositions } from './AppButton';
@@ -23,14 +26,14 @@ type Props = {
 const OptionSlider = (props: Props) => {
 	const options = props.options
 	const optionsContainerRef = useRef<any>(null);
-	const selectorRef = useRef<any>(null);
+	const selectorContainerRef = useRef<any>(null);
 	const opacityAnim = useRef(new Animated.Value(0)).current
 	const translateXAnim = useRef(new Animated.Value(0)).current // calculate from store option
 
 	const [measure, setMeasure] = useState<any>({left: 0, top: 0, width: 0, height: 0});
 	const [dimensions, setDimensions] = useState({x: 0, y: 0, width: 0, height: 0});
 	const [selectedOption, setSelectedOption] = useState(2)	// get from store
-	const [elements, setElements] = useState<Element[]>();
+	const [optionElements, setOptionElements] = useState<any>();
 
 	const onPress = (i: number) => {
 		setSelectedOption(i);
@@ -49,8 +52,8 @@ const OptionSlider = (props: Props) => {
 	}
 
   useEffect(() => {
-    if (selectorRef.current && optionsContainerRef.current) {
-      selectorRef.current.measureLayout(
+    if (selectorContainerRef.current && optionsContainerRef.current) {
+      selectorContainerRef.current.measureLayout(
         optionsContainerRef.current,
         (left: number, top: number, width: number, height: number) => {
           setMeasure({ left, top, width, height });
@@ -63,7 +66,7 @@ const OptionSlider = (props: Props) => {
 		Animated.timing(
 			translateXAnim,
 			{
-				toValue: measure.width * selectedOption, 
+				toValue: measure.width * selectedOption,
 				duration: 200,
 				useNativeDriver: true
 			}
@@ -71,71 +74,55 @@ const OptionSlider = (props: Props) => {
 	}, [selectedOption, measure.width])
 
 	useEffect(() => {
-		const elements = options.map((option, i) => (
+		const optionElements = options.map((option, i) => (
 			<React.Fragment key={i}>
+				<View style={{borderColor: 'hsla(0, 0%, 0%, 0.12)', borderLeftWidth: (i === 0 || selectedOption === i || selectedOption === i - 1) ? 0 : 0.5, borderRightWidth: (i === options.length - 1 || selectedOption === i || selectedOption === i + 1) ? 0 : 0.5}}>
 				<AppButton
 					onPress={() => onPress(i)} buttonType={'link'}
 					title={option.title} icon={option.icon}
 					iconColor={selectedOption === i ? 'hsl(233, 20%, 24%)' : 'hsl(230, 8%, 44%)'}
 					iconPosition={option.iconPosition}
 				/>
-				{(i < options.length - 1) &&
-					<View style={[styles.divider]}/>
-				}
+				</View>
 			</React.Fragment>
 		))
-		setElements(elements)
+		setOptionElements(optionElements)
 	}, [selectedOption])
 		
 	return (
 		<>
+		<View style={[tw`absolute flex px-1.5 py-3 m-auto rounded-md bg-gray-100`]}>
 			<View ref={optionsContainerRef}
 				onLayout={(event) => {
 					setDimensions(event.nativeEvent.layout);
 				}} 
-				style={[styles.container, {position: 'absolute', margin: 'auto'}]}
+				style={[tw`flex flex-1 flex-row justify-center items-center rounded-md bg-gray-100`]}
 			>
-				<Animated.View ref={selectorRef}
+				<Animated.View ref={selectorContainerRef}
 					style={[
-						styles.selected,
-						{width: ((dimensions.width - (options.length - 1)) / options.length), transform: [{translateX: translateXAnim}]},
+						styles.selectorContainer,
+						{width: (dimensions.width / options.length), transform: [{translateX: translateXAnim}]},
 						{opacity: opacityAnim || 0}
 					]}>
-					<View style={[styles.selector]}>
-					</View>
+					<View style={[styles.selector]} />
 				</Animated.View>
 				<Animated.View
-					style={[styles.elements, {opacity: opacityAnim || 0}]}>
-					{elements}
+					style={[tw`flex flex-1 flex-row justify-center items-center`, {opacity: opacityAnim || 0}]}>
+					{optionElements}
 				</Animated.View>
 			</View>
+		</View>
 		</>
 	)
 }
 
 const styles: Record<string, any> = StyleSheet.create({
-	container: {
-		flex: 1,
-		flexDirection: 'row',
-		alignItems: 'center',
-		justifyContent: 'center',
-		paddingVertical: 6,
-		paddingHorizontal: 6,
-		borderRadius: 6,
-		backgroundColor: 'hsl(0, 0%, 97%)',
-	},
-	divider: {
-		height: 24,
-		width: 1,
-		backgroundColor: 'hsl(0, 0%, 0%)',
-		opacity: 0.12,
-	},
-	selected: {
+	selectorContainer: {
 		position: 'absolute',
-		top: 0,
-		right: 3,
-		bottom: 0,
-		left: 3,
+		top: -6,
+		right: 0,
+		bottom: -6,
+		left: 0,
 		display: 'flex',
 		flex: 1,
 		flexDirection: 'row',
@@ -143,19 +130,11 @@ const styles: Record<string, any> = StyleSheet.create({
 		justifyContent: 'center',
 	},
 	selector: {
-		height: '80%',
-		width: '80%',
+		height: '100%',
+		width: '100%',
 		margin: 'auto',
 		borderRadius: 6,
 		backgroundColor: 'hsl(0, 0%, 100%)'
-	},
-	elements: {
-		display: 'flex',
-		flex: 1,
-		flexDirection: 'row',
-		alignItems: 'center',
-		justifyContent: 'center',
-		opacity: 0
 	}
 })
 
