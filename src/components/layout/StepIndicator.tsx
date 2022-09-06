@@ -1,23 +1,50 @@
 import * as React from 'react';
 import {
-  StyleSheet,
+	StyleSheet,
   View,
 	Text
 } from 'react-native';
 
+import tw from 'twrnc'
+
 type Props = {
-  active: boolean;
+  totalSteps: number;
+	currentStep: number;
 };
 
-const StepIndicator = ({active = false}: Props) => {
+const StepIndicator = (props: Props) => {
+
+	const totalSteps = props.totalSteps
+	const currentStep = props.currentStep
+	const steps: React.ReactNode[] = [];
+	const [stepElements, setStepElements] = React.useState<any>();
+
+	const Step = ({active = false}) => {
+		return (
+			<View style={[styles.step, active && styles[`active`]]} />
+		);
+	};
+
+	React.useEffect(() => {
+			for(let i = 0; i < totalSteps; i++) {
+				steps.push(
+					<Step key={i} active={(currentStep === i + 1) ? true : false} />
+				)
+			}
+		setStepElements(steps);
+	}, [currentStep])
+
 	return (
-		<View style={[styles.stepIndicator, active && styles[`active`]]}>
-		</View>
+		<>
+			<View style={tw`flex flex-1 flex-row justify-center items-center`}>
+				{stepElements}
+			</View>
+		</>
 	);
 };
 
 const styles = StyleSheet.create({
-  stepIndicator: {
+  step: {
 		height: 5,
 		width: 25,
 		marginVertical: 3,
