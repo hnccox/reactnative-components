@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React from 'react';
 import {
 	Animated,
   StyleSheet,
@@ -25,15 +25,15 @@ type Props = {
 
 const OptionSlider = (props: Props) => {
 	const options = props.options
-	const optionsContainerRef = useRef<any>(null);
-	const selectorContainerRef = useRef<any>(null);
-	const opacityAnim = useRef(new Animated.Value(0)).current
-	const translateXAnim = useRef(new Animated.Value(0)).current // calculate from store option
+	const optionsContainerRef = React.useRef<any>(null);
+	const selectorContainerRef = React.useRef<any>(null);
+	const opacityAnim = React.useRef(new Animated.Value(0)).current
+	const translateXAnim = React.useRef(new Animated.Value(0)).current // calculate from store option
 
-	const [measure, setMeasure] = useState<any>({left: 0, top: 0, width: 0, height: 0});
-	const [dimensions, setDimensions] = useState({x: 0, y: 0, width: 0, height: 0});
-	const [selectedOption, setSelectedOption] = useState(2)	// get from store
-	const [optionElements, setOptionElements] = useState<any>();
+	const [measure, setMeasure] = React.useState<any>({left: 0, top: 0, width: 0, height: 0});
+	const [dimensions, setDimensions] = React.useState({x: 0, y: 0, width: 0, height: 0});
+	const [selectedOption, setSelectedOption] = React.useState(2)	// get from store
+	const [optionElements, setOptionElements] = React.useState<any>();
 
 	const onPress = (i: number) => {
 		setSelectedOption(i);
@@ -51,7 +51,7 @@ const OptionSlider = (props: Props) => {
     ).start();
 	}
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (selectorContainerRef.current && optionsContainerRef.current) {
       selectorContainerRef.current.measureLayout(
         optionsContainerRef.current,
@@ -62,7 +62,7 @@ const OptionSlider = (props: Props) => {
     }
   }, [measure]);
 
-	useEffect(() => {
+	React.useEffect(() => {
 		Animated.timing(
 			translateXAnim,
 			{
@@ -73,7 +73,7 @@ const OptionSlider = (props: Props) => {
 		).start(setOpacity);
 	}, [selectedOption, measure.width])
 
-	useEffect(() => {
+	React.useEffect(() => {
 		const optionElements = options.map((option, i) => (
 			<React.Fragment key={i}>
 				<View style={{borderLeftColor: (selectedOption === i || selectedOption === i - 1) ? 'hsla(0, 0%, 0%, 0)' : 'hsla(0, 0%, 0%, 0.12)', borderRightColor: (selectedOption === i || selectedOption === i + 1) ? 'hsla(0, 0%, 0%, 0)' : 'hsla(0, 0%, 0%, 0.12)', borderLeftWidth: (i === 0) ? 0 : 0.5, borderRightWidth: (i === options.length - 1) ? 0 : 0.5}}>

@@ -1,38 +1,29 @@
-import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {StyleSheet, View, Text, ScrollView} from 'react-native';
+import { useSwipe } from '../../hooks/useSwipe'
 import {ComponentMeta, ComponentStory} from '@storybook/react';
+
+import tw from 'twrnc';
 
 import StepIndicator from './StepIndicator';
 
-const styles = StyleSheet.create({
-  position: {
-    position: 'absolute',
-    top: 20,
-    left: 20,
-  },
-});
-
 export default {
-  title: 'components/StepIndicator',
+  title: 'components/Steps',
   component: StepIndicator,
 } as ComponentMeta<typeof StepIndicator>;
 
-export const Active: ComponentStory<typeof StepIndicator> = args => (
-  <View style={styles.position}>
-    <StepIndicator {...args} />
-  </View>
-);
+export const Default: ComponentStory<typeof StepIndicator> = () => {
 
-export const Inactive: ComponentStory<typeof StepIndicator> = args => (
-  <View style={styles.position}>
-    <StepIndicator {...args} />
-  </View>
-);
+	const totalSteps = 5
+	const loop = true;
+	const [currentStep, setCurrentStep] = useState(1)	// get from store
 
-Active.args = {
-  active: true
+	return (
+		<>
+			<StepIndicator totalSteps={totalSteps} currentStep={currentStep} />
+		</>
+	)
 };
 
-Inactive.args = {
-  active: false
+Default.args = {
 };
