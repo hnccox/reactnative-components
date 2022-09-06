@@ -1,32 +1,54 @@
-import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import React, {useRef, useState} from 'react';
+import {StyleSheet, View, Text} from 'react-native';
 import {ComponentMeta, ComponentStory} from '@storybook/react';
 
-import Steps from './Steps';
-import StepIndicator from './StepIndicator';
+import tw from 'twrnc';
 
-const styles = StyleSheet.create({
-  position: {
-    position: 'absolute',
-    top: 20,
-    left: 20,
-  },
-});
+import Steps from './Steps';
+import AppButton from '../button/AppButton';
 
 export default {
   title: 'components/Steps',
   component: Steps,
 } as ComponentMeta<typeof Steps>;
 
-export const Default: ComponentStory<typeof Steps> = () => (
-  <View style={styles.position}>
-    <Steps>
-			<StepIndicator active={false}/>
-			<StepIndicator active={false}/>
-			<StepIndicator active={true}/>
-		</Steps>
-  </View>
-);
+export const Default: ComponentStory<typeof Steps> = () => {
+
+	const totalSteps = 5
+	const loop = false;
+	const [currentStep, setCurrentStep] = useState(1)	// get from store
+
+	const onPress = (page: string) => {
+		switch (page) {
+			case 'prev':
+				if(currentStep === 1) {
+					if(!loop) return
+					setCurrentStep(totalSteps)
+				} else {
+					setCurrentStep(currentStep - 1)
+				}
+				break;
+			case 'next':
+				if(currentStep === totalSteps) {
+					if(!loop) return
+					setCurrentStep(1)
+				} else {
+					setCurrentStep(currentStep + 1)
+				}
+				break;
+		}
+	}
+
+	return (
+		<View style={tw`m-auto`}>
+			<View style={tw`flex flex-1 flex-row justify-center items-center`}>
+				<AppButton onPress={() => onPress('prev')} buttonType='default' title="<" />
+				<Steps totalSteps={totalSteps} currentStep={currentStep} />
+				<AppButton onPress={() => onPress('next')} buttonType='default' title=">" />
+			</View>
+		</View>
+	)
+};
 
 Default.args = {
 };
