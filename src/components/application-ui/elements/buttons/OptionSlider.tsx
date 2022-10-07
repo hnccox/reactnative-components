@@ -8,8 +8,8 @@ import {
 
 import tw from 'twrnc';
 
-import AppButton from './AppButton';
-import { buttonTypes, iconPositions } from './AppButton';
+import Button from './Button';
+import { buttonStyles, iconPositions } from './Button';
 
 type SelectOption = {
 		title?: string;
@@ -19,7 +19,7 @@ type SelectOption = {
 }
 
 type Props = {
-  buttonType?: typeof buttonTypes[number];
+  buttonType?: typeof buttonStyles[number];
 	options: SelectOption[]
 };
 
@@ -77,8 +77,9 @@ const OptionSlider = (props: Props) => {
 		const optionElements = options.map((option, i) => (
 			<React.Fragment key={i}>
 				<View style={{borderLeftColor: (selectedOption === i || selectedOption === i - 1) ? 'hsla(0, 0%, 0%, 0)' : 'hsla(0, 0%, 0%, 0.12)', borderRightColor: (selectedOption === i || selectedOption === i + 1) ? 'hsla(0, 0%, 0%, 0)' : 'hsla(0, 0%, 0%, 0.12)', borderLeftWidth: (i === 0) ? 0 : 0.5, borderRightWidth: (i === options.length - 1) ? 0 : 0.5}}>
-				<AppButton
-					onPress={() => onPress(i)} buttonType={'link'}
+				<Button
+					onPress={() => onPress(i)} 
+					buttonStyle={'link'}
 					title={option.title} icon={option.icon}
 					iconColor={selectedOption === i ? 'hsl(233, 20%, 24%)' : 'hsl(230, 8%, 44%)'}
 					iconPosition={option.iconPosition}

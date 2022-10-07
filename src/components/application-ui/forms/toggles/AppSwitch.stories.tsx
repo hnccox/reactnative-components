@@ -13,7 +13,6 @@ const styles = StyleSheet.create({
 });
 
 export default {
-  title: 'components/AppSwitch',
   component: AppSwitch,
 } as ComponentMeta<typeof AppSwitch>;
 

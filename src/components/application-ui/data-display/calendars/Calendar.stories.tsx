@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
 });
 
 export default {
-  title: 'components/Calendar',
   component: Calendar,
 } as ComponentMeta<typeof Calendar>;
 

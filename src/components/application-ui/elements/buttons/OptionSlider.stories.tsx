@@ -3,12 +3,11 @@ import {StyleSheet, View} from 'react-native';
 import {ComponentMeta, ComponentStory} from '@storybook/react';
 
 import tw from 'twrnc';
-import { styles }	 from '../../constants/globalStyles';
+import { styles }	 from '../../../../constants/globalStyles';
 import OptionSlider from './OptionSlider';
 // import { buttonTypes } from './OptionSlider';
 
 export default {
-  title: 'components/OptionSlider',
   component: OptionSlider,
 	argTypes: { 
 		// buttonType: { control: { type: 'select' }, options: buttonTypes } ,

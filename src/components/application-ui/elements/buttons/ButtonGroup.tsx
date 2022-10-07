@@ -14,7 +14,7 @@ type Props = {
   buttonType?: string;
 };
 
-const AppButtonGroup = ({children}: any) => {
+const ButtonGroup = ({children}: any) => {
 
 	var buttons = [];
 	for(let i = 0; i < children.length; i++) {
@@ -57,4 +57,4 @@ const styles: Record<string, any> = StyleSheet.create({
 	}
 })
 
-export default AppButtonGroup;
+export default ButtonGroup;

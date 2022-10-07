@@ -13,7 +13,6 @@ const styles = StyleSheet.create({
 });
 
 export default {
-  title: 'components/AppPill',
   component: AppPill,
 } as ComponentMeta<typeof AppPill>;
 
