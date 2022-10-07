@@ -11,7 +11,7 @@ export default {
 } as ComponentMeta<typeof Toggle>;
 
 export const Default: ComponentStory<typeof Toggle> = args => (
-    <View style={tw`absolute`}>
+    <View style={tw`absolute inset-1`}>
 			<Toggle {...args} />
 		</View>
 );
