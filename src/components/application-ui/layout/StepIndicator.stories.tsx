@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {StyleSheet, View, Text, ScrollView} from 'react-native';
-import { useSwipe } from '../../hooks/useSwipe'
+import { useSwipe } from '../../../hooks/useSwipe'
 import {ComponentMeta, ComponentStory} from '@storybook/react';
 
 import tw from 'twrnc';
@@ -8,7 +8,6 @@ import tw from 'twrnc';
 import StepIndicator from './StepIndicator';
 
 export default {
-  title: 'components/Steps',
   component: StepIndicator,
 } as ComponentMeta<typeof StepIndicator>;
 

@@ -4,7 +4,7 @@ import {
   View,
 	Text
 } from 'react-native';
-import { useSwipe } from '../../hooks/useSwipe'
+import { useSwipe } from '../../../hooks/useSwipe'
 
 import tw from 'twrnc'
 
@@ -12,6 +12,9 @@ import tw from 'twrnc'
 
 type Props = {
   loop?: boolean;
+	direction?: string;
+	afterComplete?: boolean;
+	step?: number;
 	stepIndicator?: boolean;
 	children: any;
 };
@@ -45,45 +48,52 @@ const StepIndicator = ({totalSteps, currentStep}: any) => {
 	}, [currentStep])
 
 	return (
-		<View style={tw`flex flex-1 flex-row justify-center items-center`}>
+		<View style={tw`flex flex-row justify-center items-center`}>
 			{stepElements}
 		</View>
 	);
 };
 
-const StepWizard = ({loop = false, stepIndicator = true, children}: Props) => {
+const StepWizard = ({loop = false, direction = 'both', afterComplete = false, step = 1, stepIndicator = true, children}: Props) => {
 
 	const totalSteps = children.length
-	const [currentStep, setCurrentStep] = React.useState(1)
+	const [wizardComplete, setWizardComplete] = React.useState(false)
+	const [currentStep, setCurrentStep] = React.useState(step)
 	const { onTouchStart, onTouchEnd } = useSwipe(onSwipeLeft, onSwipeRight, 6)
 
-	function onSwipeLeft(){
-		console.log('SWIPE_LEFT')
+	React.useEffect(() => {
+		if(currentStep === totalSteps && !wizardComplete) {
+			setWizardComplete(true)
+		}
+	}, [currentStep])
+
+	function onSwipeLeft(){	
 		if(currentStep === totalSteps) {
-			if(!loop) return
-			setCurrentStep(1)
+			if(loop && (direction === 'both' || direction === 'forward')) setCurrentStep(1)
+			return
 		} else {
 			setCurrentStep(currentStep + 1)
 		}
 	}
 
 	function onSwipeRight(){
-		console.log('SWIPE_RIGHT')
 		if(currentStep === 1) {
-			if(!loop) return
-			setCurrentStep(totalSteps)
+			if(loop && (direction === 'both' || direction === 'backward')) {
+				if(afterComplete && !wizardComplete) return
+				setCurrentStep(totalSteps)
+			}
 		} else {
 			setCurrentStep(currentStep - 1)
 		}
 	}
 
 	return (
-		<>
-			<View style={[tw`flex flex-1 flex-col justify-center items-center text-black`]} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
-				{children.map((child: any, index: number) => <View key={index} style={{display: (currentStep === index + 1) ? 'flex' : 'none'}}>{child}</View> )}
+		<View style={[tw`h-full flex flex-row items-center justify-center`]}>
+			<View style={[tw`absolute inset-10`]} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
+				{children.map((child: any, index: number) => <View key={index} style={[{display: (currentStep === index + 1) ? 'flex' : 'none'}, tw`items-center justify-center self-stretch`]}>{child}</View> )}
 			</View>
-			{stepIndicator && <StepIndicator totalSteps={totalSteps} currentStep={currentStep} />}
-		</>
+			{stepIndicator && <StepIndicator style={[tw`absolute bottom-10`]} totalSteps={totalSteps} currentStep={currentStep} />}
+		</View>
 	)
 };
 

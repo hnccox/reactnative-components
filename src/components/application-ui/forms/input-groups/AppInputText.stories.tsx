@@ -13,7 +13,6 @@ const styles = StyleSheet.create({
 });
 
 export default {
-  title: 'components/InputText',
   component: AppInputText,
 } as ComponentMeta<typeof AppInputText>;
 
