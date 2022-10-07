@@ -44,12 +44,12 @@ const ToggleComponent = ({value = false, name = '', disabled = false, icons = { 
 
 			{/* SwitchGroup */ }
 			<View
-				style={[{flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between'}]}>
+				style={[{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}]}>
 				
 				{/* Label */}
-				<View style={[tw`flex flex-shrink-0 flex-grow flex-col`]}>
-					<Text style={[tw`text-sm font-medium text-gray-900`]}>{label.title}</Text>
-					<Text style={[tw`text-sm text-gray-500`]}>{label.description}</Text>
+				<View style={[tw.style('flex flex-grow flex-col')]}>
+					<Text style={[tw.style('text-sm font-medium text-gray-900')]}>{label.title}</Text>
+					<Text style={[tw.style('text-sm text-gray-500')]}>{label.description}</Text>
 				</View>
 
 				{/* Switch */}
@@ -62,7 +62,7 @@ const ToggleComponent = ({value = false, name = '', disabled = false, icons = { 
 					disabled={isDisabled}
 				>
 							
-					{/* <Text style={[tw`sr-only`]}>Use setting</Text> */}
+					<Text style={[tw.style('absolute opacity-0')]}>Use setting</Text>
 
 					<View 
 						onLayout={(event) => {
