@@ -80,7 +80,8 @@ const OptionSlider = (props: Props) => {
 				<Button
 					onPress={() => onPress(i)} 
 					buttonStyle={'link'}
-					title={option.title} icon={option.icon}
+					title={option.title} 
+					icon={option.icon}
 					iconColor={selectedOption === i ? 'hsl(233, 20%, 24%)' : 'hsl(230, 8%, 44%)'}
 					iconPosition={option.iconPosition}
 				/>

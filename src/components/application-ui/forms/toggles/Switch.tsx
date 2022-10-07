@@ -12,7 +12,7 @@ type Props = {
   switchType: string;
 };
 
-const AppSwitch = ({onPress, switchType = 'default'}: Props) => {
+const SwitchComponent = ({onPress, switchType = 'default'}: Props) => {
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
@@ -113,4 +113,4 @@ const styles: Record<string, any> = StyleSheet.create({
   },
 });
 
-export default AppSwitch;
+export default SwitchComponent;
