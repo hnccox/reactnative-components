@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
 });
 
 export default {
+	title: 'application-ui/overlays/modals',
   component: AppModal,
 } as ComponentMeta<typeof AppModal>;
 
@@ -22,16 +23,16 @@ export const Primary: ComponentStory<typeof AppModal> = args => (
 	</View>
 );
 
-Primary.args = {
-  title: 'Primary',
-  class: 'primary',
-};
-
 export const Secondary: ComponentStory<typeof AppModal> = args => (
 	<View style={styles.position}>
   	<AppModal />
 	</View>
 );
+
+Primary.args = {
+  title: 'Primary',
+  class: 'primary',
+};
 
 Secondary.args = {
   title: 'Secondary',

@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
 });
 
 export default {
+	title: 'utils/dimensions',
   component: Dimensions,
 } as ComponentMeta<typeof Dimensions>;
 

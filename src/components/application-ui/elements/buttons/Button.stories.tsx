@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
 });
 
 export default {
-  label: 'components/Button',
+  title: 'application-ui/elements/buttons',
   component: Button,
 	argTypes: { 
 		buttonStyle: { control: { type: 'select' }, options: buttonStyles } ,

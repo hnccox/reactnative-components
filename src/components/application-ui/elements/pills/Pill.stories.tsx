@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {ComponentMeta, ComponentStory} from '@storybook/react';
 
-import AppPill from './AppPill';
+import Pill from './Pill';
 
 const styles = StyleSheet.create({
   position: {
@@ -13,60 +13,61 @@ const styles = StyleSheet.create({
 });
 
 export default {
-  component: AppPill,
-} as ComponentMeta<typeof AppPill>;
+	title: 'application-ui/elements/pills',
+  component: Pill,
+} as ComponentMeta<typeof Pill>;
 
-export const Primary: ComponentStory<typeof AppPill> = args => (
+export const Primary: ComponentStory<typeof Pill> = args => (
   <View style={styles.position}>
-    <AppPill {...args} />
+    <Pill {...args} />
   </View>
 );
 
-export const Secondary: ComponentStory<typeof AppPill> = args => (
+export const Secondary: ComponentStory<typeof Pill> = args => (
   <View style={styles.position}>
-    <AppPill {...args} />
+    <Pill {...args} />
   </View>
 );
 
-export const Success: ComponentStory<typeof AppPill> = args => (
+export const Success: ComponentStory<typeof Pill> = args => (
   <View style={styles.position}>
-    <AppPill {...args} />
+    <Pill {...args} />
   </View>
 );
 
-export const Danger: ComponentStory<typeof AppPill> = args => (
+export const Danger: ComponentStory<typeof Pill> = args => (
   <View style={styles.position}>
-    <AppPill {...args} />
+    <Pill {...args} />
   </View>
 );
 
-export const Warning: ComponentStory<typeof AppPill> = args => (
+export const Warning: ComponentStory<typeof Pill> = args => (
   <View style={styles.position}>
-    <AppPill {...args} />
+    <Pill {...args} />
   </View>
 );
 
-export const Info: ComponentStory<typeof AppPill> = args => (
+export const Info: ComponentStory<typeof Pill> = args => (
   <View style={styles.position}>
-    <AppPill {...args} />
+    <Pill {...args} />
   </View>
 );
 
-export const Light: ComponentStory<typeof AppPill> = args => (
+export const Light: ComponentStory<typeof Pill> = args => (
   <View style={styles.position}>
-    <AppPill {...args} />
+    <Pill {...args} />
   </View>
 );
 
-export const Dark: ComponentStory<typeof AppPill> = args => (
+export const Dark: ComponentStory<typeof Pill> = args => (
   <View style={styles.position}>
-    <AppPill {...args} />
+    <Pill {...args} />
   </View>
 );
 
-export const Link: ComponentStory<typeof AppPill> = args => (
+export const Link: ComponentStory<typeof Pill> = args => (
   <View style={styles.position}>
-    <AppPill {...args} />
+    <Pill {...args} />
   </View>
 );
 

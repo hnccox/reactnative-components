@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
 });
 
 export default {
+	title: 'application-ui/elements/button-groups',
   component: ButtonGroup,
 } as ComponentMeta<typeof ButtonGroup>;
 

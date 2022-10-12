@@ -4,11 +4,12 @@ import {Pressable, StatusBar, StyleSheet, Text, View} from 'react-native';
 import {ComponentMeta, ComponentStory} from '@storybook/react';
 
 import {BottomPanel} from './BottomPanel';
-import AppButton from '../elements/buttons/Button';
+import AppButton from '../../elements/buttons/Button';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import { IconPrefix, IconProp } from "@fortawesome/fontawesome-svg-core";
 
 export default {
+	title: 'application-ui/layout/panels/bottompanels',
   component: BottomPanel,
 } as ComponentMeta<typeof BottomPanel>;
 

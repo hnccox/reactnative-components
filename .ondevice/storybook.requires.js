@@ -28,6 +28,8 @@ argsEnhancers.forEach((enhancer) => addArgsEnhancer(enhancer));
 
 const getStories = () => {
 	return [
+		require('../src/components/htmlelements/Dimensions.stories.tsx'),
+		require('../src/components/application-ui/elements/buttons/OptionSlider.stories.tsx'),
 		require('../src/components/application-ui/forms/toggles/Toggle.stories.tsx')
 	];
 };

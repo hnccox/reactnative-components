@@ -6,6 +6,7 @@ import tw from 'twrnc';
 import Input from './Input';
 
 export default {
+	title: 'application-ui/forms/input-groups/input',
   component: Input,
 } as ComponentMeta<typeof Input>;
 
