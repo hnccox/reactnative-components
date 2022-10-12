@@ -8,6 +8,7 @@ import tw from 'twrnc';
 import StepIndicator from './StepIndicator';
 
 export default {
+	title: 'application-ui/layout/step-indicator',
   component: StepIndicator,
 } as ComponentMeta<typeof StepIndicator>;
 

@@ -5,9 +5,8 @@ import tw from 'twrnc';
 
 import Switch from './Switch';
 
-
-
 export default {
+	title: 'application-ui/forms/toggles/switches',
   component: Switch,
 } as ComponentMeta<typeof Switch>;
 

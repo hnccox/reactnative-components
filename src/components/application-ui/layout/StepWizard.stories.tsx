@@ -8,6 +8,7 @@ import { StepWizard, Step } from './StepWizard';
 import AppButton from '../elements/buttons/Button';
 
 export default {
+	title: 'application-ui/layout/step-wizard',
   component: StepWizard,
 } as ComponentMeta<typeof StepWizard>;
 

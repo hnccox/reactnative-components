@@ -8,6 +8,7 @@ import OptionSlider from './OptionSlider';
 // import { buttonTypes } from './OptionSlider';
 
 export default {
+	title: 'application-ui/elements/option-slider',
   component: OptionSlider,
 	argTypes: { 
 		// buttonType: { control: { type: 'select' }, options: buttonTypes } ,

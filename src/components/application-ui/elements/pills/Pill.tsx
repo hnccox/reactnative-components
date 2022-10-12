@@ -12,7 +12,7 @@ type Props = {
   pillType: string;
 };
 
-const AppPill = ({title, pillType = 'default'}: Props) => {
+const Pill = ({title, pillType = 'default'}: Props) => {
   return (
     <TouchableOpacity
       style={[styles.pill, styles.primary, pillType && styles[pillType]]}>
@@ -111,19 +111,7 @@ const styles: Record<string, any> = StyleSheet.create({
   linkText: {
     fontWeight: '400',
     color: '#007bff',
-  },
-  // primary: {
-  //   backgroundColor: '#31344A',
-  // },
-  // primaryText: {
-  //   color: '#FFFFFF',
-  // },
-  // secondary: {
-  //   backgroundColor: '#EBEBED',
-  // },
-  // secondaryText: {
-  //   color: '#343C45',
-  // },
+  }
 });
 
-export default AppPill;
+export default Pill;

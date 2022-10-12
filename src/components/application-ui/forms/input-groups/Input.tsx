@@ -10,6 +10,11 @@ class Input extends React.Component<any, any> {
 		super(props)
 	}
 
+	render() {
+		return (
+			<View>Hello</View>
+		)
+	}
 }
 
 export default Input;

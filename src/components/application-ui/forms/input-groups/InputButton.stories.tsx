@@ -6,6 +6,7 @@ import tw from 'twrnc';
 import InputButton from './InputButton';
 
 export default {
+	title: 'application-ui/forms/input-groups/inputbutton',
   component: InputButton,
 } as ComponentMeta<typeof InputButton>;
 
