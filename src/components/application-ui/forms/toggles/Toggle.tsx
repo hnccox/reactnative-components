@@ -97,7 +97,7 @@ const ToggleComponent = ({value = true, name, disabled = false, label, optionLab
 				useNativeDriver: true
 			}
 		).start();
-	}, [isEnabled])
+	}, [isEnabled, toggleDimensions, sliderDimensions])
 
   return (
 		<>
@@ -117,7 +117,7 @@ const ToggleComponent = ({value = true, name, disabled = false, label, optionLab
 
 			{/* SwitchGroup */ }
 			<View
-				style={[tw.style('flex items-center justify-between'), labelPosition(isPortrait)]}>
+				style={[tw.style('flex items-center justify-between w-full'), labelPosition(isPortrait)]}>
 				
 				{/* Label */}
 				<View style={[tw.style('flex flex-grow flex-col m-2 px-2')]}>
@@ -127,7 +127,7 @@ const ToggleComponent = ({value = true, name, disabled = false, label, optionLab
 
 				<View style={tw.style('flex flex-row items-center m-3 px-2')}>
 					{ optionLabels?.position === 'outer' &&
-						<Text style={[tw.style('relative text-sm mx-1', isEnabled ? 'text-slate-500' : 'text-current')]}>{optionLabels?.unchecked}</Text>
+						<Text style={[tw.style('relative text-sm mx-1', isEnabled ? 'text-slate-500' : 'text-slate-900')]}>{optionLabels?.unchecked}</Text>
 					}
 					{/* Switch */}
 					<TouchableOpacity
@@ -135,7 +135,7 @@ const ToggleComponent = ({value = true, name, disabled = false, label, optionLab
 						onLayout={(event) => {
 							setToggleDimensions(event.nativeEvent.layout);
 						}}
-						style={[{minWidth: sliderDimensions.width * 2 + ((checkedLabelDimensions.width > uncheckedLabelDimensions.width) ? checkedLabelDimensions.width : uncheckedLabelDimensions.width) + 1, width: sliderDimensions.width * 2 + ((checkedLabelDimensions.width > uncheckedLabelDimensions.width) ? checkedLabelDimensions.width : uncheckedLabelDimensions.width) + 1}, tw.style((isDisabled ? (isEnabled ? 'bg-indigo-300': 'bg-gray-300') : (isEnabled ? 'bg-indigo-600' : 'bg-gray-200')), 'relative inline-flex flex-row h-6 flex-shrink-0 flex-grow cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2')]}
+						style={[{minWidth: sliderDimensions.width * 2 + ((checkedLabelDimensions.width > uncheckedLabelDimensions.width) ? checkedLabelDimensions.width : uncheckedLabelDimensions.width) + 1, width: sliderDimensions.width * 2 + ((checkedLabelDimensions.width > uncheckedLabelDimensions.width) ? checkedLabelDimensions.width : uncheckedLabelDimensions.width) + 1}, tw.style((isDisabled ? (isEnabled ? 'bg-indigo-300': 'bg-gray-300') : (isEnabled ? 'bg-indigo-600' : 'bg-gray-200')), 'relative inline-flex flex-row h-6 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2')]}
 						disabled={isDisabled}
 					>
 								
@@ -159,12 +159,12 @@ const ToggleComponent = ({value = true, name, disabled = false, label, optionLab
 							}
 						</Animated.View>
 							
-						{ (isEnabled && optionLabels?.position === 'inner') && <Text style={[tw.style('absolute w-full self-center text-white pl-2'), {textAlign:'left'}]}>{optionLabels.unchecked}</Text> }
-						{ (!isEnabled && optionLabels?.position === 'inner') && <Text style={[tw.style('absolute w-full self-center text-slate-500 pr-2'), {textAlign:'right'}]}>{optionLabels.checked}</Text> }
+						{ (isEnabled && optionLabels?.position === 'inner') && <Text style={[tw.style('absolute w-full self-center text-white pl-2'), {textAlign:'left'}]}>{optionLabels.checked}</Text> }
+						{ (!isEnabled && optionLabels?.position === 'inner') && <Text style={[tw.style('absolute w-full self-center text-slate-500 pr-2'), {textAlign:'right'}]}>{optionLabels.unchecked}</Text> }
 								
 					</TouchableOpacity>
 					{ optionLabels?.position === 'outer' &&
-						<Text style={[tw.style('relative text-sm mx-1', isEnabled ? 'text-current' : 'text-slate-500')]}>{optionLabels.checked}</Text>
+						<Text style={[tw.style('relative text-sm mx-1', isEnabled ? 'text-slate-900' : 'text-slate-500')]}>{optionLabels.checked}</Text>
 					}
 				</View>
 			</View>

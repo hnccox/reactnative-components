@@ -12,7 +12,7 @@ import Button from './Button';
 import { buttonStyles, iconPositions } from './Button';
 
 type SelectOption = {
-		title?: string;
+		label?: string;
 		icon?: string;
 		iconColor?: string;
 		iconPosition?: typeof iconPositions[number];
@@ -80,7 +80,7 @@ const OptionSlider = (props: Props) => {
 				<Button
 					onPress={() => onPress(i)} 
 					buttonStyle={'link'}
-					title={option.title} 
+					label={option.label} 
 					icon={option.icon}
 					iconColor={selectedOption === i ? 'hsl(233, 20%, 24%)' : 'hsl(230, 8%, 44%)'}
 					iconPosition={option.iconPosition}

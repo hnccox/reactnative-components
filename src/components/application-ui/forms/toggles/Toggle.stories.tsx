@@ -23,15 +23,17 @@ const ToggleTemplate: ComponentStory<typeof Toggle> = (args) => {
 export const ToggleComponent = ToggleTemplate.bind({});
 
 ToggleComponent.args = {
-	value: false,
+	value: true,
+	disabled: false,
 	label: {
 		title: 'Available to hire',
-		description: 'Nulla amet tempus sit accumsan. Aliquet turpis sed sit lacinia.'
+		description: 'Nulla amet tempus sit accumsan. Aliquet turpis sed sit lacinia.',
+		position: 'bottom'
 	},
 	optionLabels: {
 		checked: 'Enabled',
 		unchecked: 'Disabled',
-		position: 'outer'
+		position: 'inner'
 	},
 	icons: {
 		checked: 'check',
