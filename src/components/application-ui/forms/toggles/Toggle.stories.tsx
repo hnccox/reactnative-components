@@ -26,7 +26,7 @@ export default {
 // }
 
 export const Default: ComponentStory<typeof Toggle> = args => (
-  <View style={tw`absolute`}>
+  <View style={tw`flex flex-row items-center justify-center m-5`}>
 		<Card>
     	<Toggle {...args} />
 		</Card>
