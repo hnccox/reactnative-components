@@ -171,7 +171,7 @@ const ToggleComponent = ({value = true, name, disabled = false, size = 0, label,
 		<>
 			{/*HIDDEN* optionLabels */}
 			{ optionLabels &&
-				<View style={[tw.style('absolute inset-0 opacity-0 z-0 flex flex-row flex-start')]}>
+				<View style={[tw.style('absolute inset-0 opacity-0 z-0 flex flex-row justify-start')]}>
 					<Text
 						onLayout={(event) => {
 							setCheckedLabelDimensions(event.nativeEvent.layout)
@@ -201,7 +201,7 @@ const ToggleComponent = ({value = true, name, disabled = false, size = 0, label,
 							<Text 
 								style={[tw.style('relative text-sm mx-1', 
 									isDisabled ? 'text-gray-300': (isEnabled ? 'text-slate-500' : 'text-slate-500'),
-						 			(optionLabels.position === 'outer' || (optionLabels.position === 'outer left' && isEnabled)) ? 'opacity-0' : 'opacity-100')]
+						 			(optionLabels.position === 'outer' || (optionLabels.position === 'outer left' && !isEnabled)) ? 'opacity-100' : 'opacity-0')]
 								}>{optionLabels?.unchecked}</Text>
 						}
 						{ (optionLabels?.position === 'outer left') &&
