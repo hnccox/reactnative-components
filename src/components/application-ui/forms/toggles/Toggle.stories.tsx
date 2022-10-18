@@ -6,29 +6,42 @@ import tw from 'twrnc';
 
 import Toggle from './Toggle';
 
+// More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
-	title: 'application-ui/forms/toggles',
-  component: Toggle,
+	title: 'Forms/Toggles',
+	component: Toggle,
+	// More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
+	// argTypes: {
+	// },
 } as ComponentMeta<typeof Toggle>;
 
-const ToggleTemplate: ComponentStory<typeof Toggle> = (args) => {
 
-	return (
-		<View style={[tw.style('flex flex-row justify-center items-center')]}>
-			<Card><Toggle {...args} /></Card>
-		</View>
-	)
-}
+// const ToggleTemplate: ComponentStory<typeof Toggle> = (args) => {
 
-export const ToggleComponent = ToggleTemplate.bind({});
+// 	return (
+// 		<View style={[tw.style('flex flex-row justify-center items-center')]}>
+// 			<Card><Toggle {...args} /></Card>
+// 		</View>
+// 	)
+// }
 
-ToggleComponent.args = {
+export const Default: ComponentStory<typeof Toggle> = args => (
+  <View style={tw`absolute`}>
+		<Card>
+    	<Toggle {...args} />
+		</Card>
+  </View>
+);
+
+// More on args: https://storybook.js.org/docs/vue/writing-stories/args
+Default.args = {
 	value: true,
 	disabled: false,
+	size: 'auto',
 	label: {
 		title: 'Available to hire',
 		description: 'Nulla amet tempus sit accumsan. Aliquet turpis sed sit lacinia.',
-		position: 'bottom'
+		position: 'right'
 	},
 	optionLabels: {
 		checked: 'Enabled',

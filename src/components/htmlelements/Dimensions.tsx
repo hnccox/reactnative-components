@@ -4,8 +4,14 @@ import {View, StyleSheet, Text, Dimensions} from 'react-native';
 const window = Dimensions.get('window');
 const screen = Dimensions.get('screen');
 
-const App = () => {
+type Props = {
+	elementText?: string;
+};
+
+const App = ({elementText}: Props) => {
+
   const [dimensions, setDimensions] = useState({window, screen});
+	const [elementDimensions, setElementDimensions] = useState({ x:0, y:0, width:0, height: 0 });
 
   useEffect(() => {
     const subscription = Dimensions.addEventListener(
@@ -19,6 +25,19 @@ const App = () => {
 
   return (
     <View style={styles.container}>
+			<View 						
+				onLayout={(event) => {
+					setElementDimensions(event.nativeEvent.layout);
+				}}
+				style={{flex: 1, backgroundColor: "pink"}}
+			>
+				<Text style={[styles.header]}>{elementText}</Text>
+			</View>
+			{Object.entries(elementDimensions).map(([elmkey, value]) => (
+				<Text key={elmkey.toString()}>
+					{elmkey} - {value}
+				</Text>
+			))}
       <Text style={styles.header}>Window Dimensions</Text>
       {Object.entries(dimensions.window).map(([wndkey, value]) => (
         <Text key={wndkey.toString()}>
@@ -40,6 +59,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+		flexDirection: 'column',
   },
   header: {
     fontSize: 16,

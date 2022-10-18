@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+		backgroundColor: '#D3D3D3',
   },
   header: {
     fontSize: 16,
@@ -21,8 +22,12 @@ export default {
   component: Dimensions,
 } as ComponentMeta<typeof Dimensions>;
 
-export const DimensionsView: ComponentStory<typeof Dimensions> = () => (
+export const DimensionsView: ComponentStory<typeof Dimensions> = (args) => (
   <View style={styles.container}>
-    <Dimensions />
+    <Dimensions {...args} />
   </View>
 );
+
+DimensionsView.args = {
+	elementText: 'Element Dimensions',
+};

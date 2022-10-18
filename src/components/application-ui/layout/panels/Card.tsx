@@ -15,7 +15,7 @@ type Props = {
 const CardComponent = ({ fullscreen = true, header, body, footer, children}: Props) => {
 
   return (
-		<View style={[tw.style('flex flex-col items-stretch w-full h-full my-5 overflow-hidden rounded-lg bg-white shadow divide-y divide-gray-200')]}>
+		<View style={[tw.style('flex flex-col items-stretch bg-white overflow-hidden shadow-md rounded-lg divide-y divide-gray-200 w-full h-full my-5')]}>
 			{ !fullscreen &&
 				<View style={[tw.style('px-4 py-5 sm:px-6 shrink')]}>
 					{/* <!-- Content goes here --> */}

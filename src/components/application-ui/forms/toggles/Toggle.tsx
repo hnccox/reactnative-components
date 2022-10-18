@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {
 	Animated,
+	Easing,
 	Dimensions,
   Text,
 	View,
@@ -12,15 +13,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 type Label = {
-	title: string,
-	description: string,
+	title?: string,
+	description?: string,
 	position?: 'top' | 'right' | 'bottom' | 'left' | 'top left' | 'top right' | 'bottom left' | 'bottom right'
 }
 
 type OptionLabels = {
 	checked: string,
 	unchecked: string
-	position?: 'inner' | 'outer'
+	position?: 'inner' | 'outer' | 'outer left' | 'outer right'
 }
 
 type Icons = {
@@ -32,16 +33,16 @@ type Props = {
 	value: boolean;
 	name?: string;
 	disabled: boolean;
+	size?: string | number;
   label?: Label;
 	optionLabels?: OptionLabels;
 	icons?: Icons
 };
 
-const ToggleComponent = ({value = true, name, disabled = false, label, optionLabels, icons}: Props) => {
+const ToggleComponent = ({value = true, name, disabled = false, size = 0, label, optionLabels, icons}: Props) => {
 
-	if(label && !label.position) { label.position = 'top right' }
+	if(label && !label.position) { label.position = 'left' }
 	if(optionLabels && !optionLabels.position) { optionLabels.position = 'inner' }
-
 	if(label?.position && label?.position.split(' ').length === 1) {
 		switch(label?.position) {
 			case 'top':
@@ -55,7 +56,7 @@ const ToggleComponent = ({value = true, name, disabled = false, label, optionLab
 				break;
 			case 'left':
 				label.position = 'top left'
-			default: 
+			default: label.position = 'right'
 		}
 	}
 
@@ -68,6 +69,8 @@ const ToggleComponent = ({value = true, name, disabled = false, label, optionLab
 	const [uncheckedLabelDimensions, setUncheckedLabelDimensions] = useState({ x:0	, y:0, width:0, height: 0 });
 
 	const translateXAnim = React.useRef(new Animated.Value(0)).current
+	// const opacityCheckedAnim = React.useRef(new Animated.Value((isEnabled ? 100 : 0))).current
+	// const opacityUncheckedAnim = React.useRef(new Animated.Value((isEnabled ? 0 : 100))).current
 
 	const [isPortrait, setPortrait] = useState(() => {
 		const dim = Dimensions.get('screen');
@@ -79,6 +82,42 @@ const ToggleComponent = ({value = true, name, disabled = false, label, optionLab
 		const dim = Dimensions.get('screen');
 		setPortrait(dim.height >= dim.width);
 	});
+
+	const sliderWidth = () => {
+		return sliderDimensions.width
+	}
+
+	const labelWidth = () => {
+		// Return always the width of the optionLabels if size < optionLabels.width
+		let _size: number;
+		switch(size) {
+			case 'xs':
+				_size = 0;
+				break;
+			case 'sm':
+				_size = 12;
+				break;
+			case 'md':
+				_size = 36;
+				break;
+			case 'lg':
+				_size = 60;
+				break;
+			case 'xl':
+				_size = 100;
+				break;
+			default: Number.isInteger(size) ? _size = size as number : _size = 0;
+		}
+		if((optionLabels?.position === 'inner' || !size )) {
+			if(checkedLabelDimensions.width > uncheckedLabelDimensions.width) {
+				return ((checkedLabelDimensions.width > _size) ? checkedLabelDimensions.width : _size)
+			} else {
+				return ((uncheckedLabelDimensions.width > _size) ? uncheckedLabelDimensions.width : _size)
+			}
+		} else {
+			return _size
+		}
+	}
 
 	const labelPosition = (portrait: boolean) => {
 		if(portrait) {
@@ -99,7 +138,36 @@ const ToggleComponent = ({value = true, name, disabled = false, label, optionLab
 		).start();
 	}, [isEnabled, toggleDimensions, sliderDimensions])
 
-  return (
+	// React.useEffect(() => {
+	// 	Animated.parallel([
+	// 		Animated.timing(
+	// 			translateXAnim,
+	// 			{
+	// 				toValue: (isEnabled ? 1 : 0) * (toggleDimensions.width - sliderDimensions.width - 2 * 2),
+	// 				duration: 200,
+	// 				useNativeDriver: true
+	// 			}
+	// 		),
+	// 		Animated.timing(
+	// 			opacityCheckedAnim,
+	// 			{
+	// 				toValue: (isEnabled ? 100 : 0),
+	// 				duration: 200,
+	// 				useNativeDriver: true
+	// 			}
+	// 		),
+	// 		Animated.timing(
+	// 			opacityUncheckedAnim,
+	// 			{
+	// 				toValue: (isEnabled ? 0 : 100),
+	// 				duration: 200,
+	// 				useNativeDriver: true
+	// 			}
+	// 		),
+	// 	]).start();
+	// }, [isEnabled, toggleDimensions, sliderDimensions])
+
+	return (
 		<>
 			{/*HIDDEN* optionLabels */}
 			{ optionLabels &&
@@ -126,16 +194,32 @@ const ToggleComponent = ({value = true, name, disabled = false, label, optionLab
 				</View>
 
 				<View style={tw.style('flex flex-row items-center m-3 px-2')}>
-					{ optionLabels?.position === 'outer' &&
-						<Text style={[tw.style('relative text-sm mx-1', isEnabled ? 'text-slate-500' : 'text-slate-900')]}>{optionLabels?.unchecked}</Text>
-					}
+
+					{/* optionLabels */}
+					<View style={tw.style('flex items-center')}>
+						{ (optionLabels?.position === 'outer' || optionLabels?.position === 'outer left') &&
+							<Text 
+								style={[tw.style('relative text-sm mx-1', 
+									isDisabled ? 'text-gray-300': (isEnabled ? 'text-slate-500' : 'text-slate-500'),
+						 			(optionLabels.position === 'outer' || (optionLabels.position === 'outer left' && isEnabled)) ? 'opacity-0' : 'opacity-100')]
+								}>{optionLabels?.unchecked}</Text>
+						}
+						{ (optionLabels?.position === 'outer left') &&
+							<Text 
+								style={[tw.style('absolute text-sm mx-1', 
+								isDisabled ? 'text-gray-300' : (isEnabled ? 'text-slate-900' : 'text-slate-500'),
+								(optionLabels.position === 'outer left' && isEnabled) ? 'opacity-100' : 'opacity-0')]
+							}>{optionLabels?.checked}</Text>
+						}
+					</View>
+
 					{/* Switch */}
 					<TouchableOpacity
 						onPress={() => setIsEnabled(!isEnabled)}
 						onLayout={(event) => {
 							setToggleDimensions(event.nativeEvent.layout);
 						}}
-						style={[{minWidth: sliderDimensions.width * 2 + ((checkedLabelDimensions.width > uncheckedLabelDimensions.width) ? checkedLabelDimensions.width : uncheckedLabelDimensions.width) + 1, width: sliderDimensions.width * 2 + ((checkedLabelDimensions.width > uncheckedLabelDimensions.width) ? checkedLabelDimensions.width : uncheckedLabelDimensions.width) + 1}, tw.style((isDisabled ? (isEnabled ? 'bg-indigo-300': 'bg-gray-300') : (isEnabled ? 'bg-indigo-600' : 'bg-gray-200')), 'relative inline-flex flex-row h-6 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2')]}
+						style={[{minWidth: sliderWidth() * 2 + labelWidth(), width: sliderWidth() * 2 + labelWidth(), maxWidth: sliderWidth() * 2 + labelWidth()}, tw.style((isDisabled ? (isEnabled ? 'bg-indigo-300': 'bg-gray-300') : (isEnabled ? 'bg-indigo-600' : 'bg-gray-200')), 'relative flex flex-row h-6 rounded-full border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2')]}
 						disabled={isDisabled}
 					>
 								
@@ -145,16 +229,17 @@ const ToggleComponent = ({value = true, name, disabled = false, label, optionLab
 							onLayout={(event) => {
 								setSliderDimensions(event.nativeEvent.layout);
 							}}
-							style={[tw.style('pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out'), { transform: [{translateX: translateXAnim}] }]}
+							style={[tw.style('h-5 w-5 rounded-full bg-white shadow'), { transform: [{translateX: translateXAnim}] }]}
 						>
-							{ (icons && isEnabled) &&
-								<View style={[tw.style(isDisabled ? 'opacity-60' : 'opacity-100', 'ease-out duration-100 absolute inset-0 flex flex-col h-full w-full items-center justify-center')]} aria-hidden="true">
-									<FontAwesomeIcon icon={['fas', `${icons.checked}`] as IconProp} size={12} />
+							{/* TouchableOpacity already implements an opacity animation */}
+							{ (icons && !isEnabled) &&
+								<View style={[tw.style('absolute inset-0 flex flex-col h-full w-full items-center justify-center', isEnabled? 'opacity-0' : 'opacity-100'), /*{ opacity: opacityUncheckedAnim }*/]} aria-hidden="true">
+									<FontAwesomeIcon icon={['fas', `${icons.unchecked}`] as IconProp} size={12} />
 								</View>
 							}
-							{ (icons && !isEnabled) &&
-								<View style={[tw.style(isDisabled ? 'opacity-60' : 'opacity-100', 'ease-out duration-100 absolute inset-0 flex flex-col h-full w-full items-center justify-center')]} aria-hidden="true">
-									<FontAwesomeIcon icon={['fas', `${icons.unchecked}`] as IconProp} size={12} />
+							{ (icons && isEnabled) &&
+								<View style={[tw.style('absolute inset-0 flex flex-col h-full w-full items-center justify-center', isEnabled? 'opacity-100' : 'opacity-0'), /*{ opacity: opacityCheckedAnim }*/]} aria-hidden="true">
+									<FontAwesomeIcon icon={['fas', `${icons.checked}`] as IconProp} size={12} />
 								</View>
 							}
 						</Animated.View>
@@ -163,9 +248,25 @@ const ToggleComponent = ({value = true, name, disabled = false, label, optionLab
 						{ (!isEnabled && optionLabels?.position === 'inner') && <Text style={[tw.style('absolute w-full self-center text-slate-500 pr-2'), {textAlign:'right'}]}>{optionLabels.unchecked}</Text> }
 								
 					</TouchableOpacity>
-					{ optionLabels?.position === 'outer' &&
-						<Text style={[tw.style('relative text-sm mx-1', isEnabled ? 'text-slate-900' : 'text-slate-500')]}>{optionLabels.checked}</Text>
-					}
+
+					{/* optionLabels */}
+					<View style={tw.style('flex items-center')}>
+						{ (optionLabels?.position === 'outer' || optionLabels?.position === 'outer right') &&
+							<Text 
+								style={[tw.style('relative text-sm mx-1', 
+									isDisabled ? 'text-gray-300': (isEnabled ? 'text-slate-900' : 'text-slate-500'),
+						 			(optionLabels.position === 'outer' || (optionLabels.position === 'outer right' && isEnabled)) ? 'opacity-100' : 'opacity-0')]
+								}>{optionLabels?.checked}</Text>
+						}
+						{ (optionLabels?.position === 'outer right') &&
+							<Text 
+								style={[tw.style('absolute text-sm mx-1', 
+								isDisabled ? 'text-gray-300' : (isEnabled ? 'text-slate-500' : 'text-slate-500'),
+								(optionLabels.position === 'outer right' && isEnabled) ? 'opacity-0' : 'opacity-100')]
+							}>{optionLabels?.unchecked}</Text>
+						}
+					</View>
+
 				</View>
 			</View>
 		</>
