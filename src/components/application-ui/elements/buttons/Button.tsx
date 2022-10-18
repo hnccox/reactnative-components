@@ -10,20 +10,24 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
+export const buttonSizes = ["xs", "sm", "md", "lg", "xl"] as const
 export const buttonStyles = ["default", "primary", "secondary", "success", "danger", "warning", "info", "light", "dark", "link"] as const
 export const iconPositions = ["top", "left", "right", "bottom"] as const
 
 type Props = {
   onPress: (e: GestureResponderEvent) => any;
 	type?: 'button' | 'submit' | 'reset';
+	disabled?: boolean;
   label?: string;
+	title?: string;
+	size?: typeof buttonSizes[number];
   buttonStyle?: typeof buttonStyles[number];
 	icon?: string;
 	iconColor?: string;
 	iconPosition?: typeof iconPositions[number];
 };
 
-const Button = ({onPress, buttonStyle = 'default', label, icon = '', iconColor, iconPosition = 'left'}: Props) => {
+const Button = ({onPress, buttonStyle = 'default', label, title, icon = '', iconColor, iconPosition = 'left'}: Props) => {
 
 	// const computedIiconColor = (iconColor) ? `color: ${iconColor}` : styles[`${buttonType}Text`]
   const flexDirection = () => {
@@ -45,10 +49,10 @@ const Button = ({onPress, buttonStyle = 'default', label, icon = '', iconColor, 
 				style={[styles[`${buttonStyle}Text`],
 					{
 						color: iconColor,
-						marginTop: (iconPosition === 'bottom' && label) ? 6 : 0, 
-						marginRight: (iconPosition === 'left' && label) ? 6 : 0, 
-						marginBottom: (iconPosition === 'top' && label) ? 6 : 0,
-						marginLeft: (iconPosition === 'right' && label) ? 6 : 0 
+						marginTop: (iconPosition === 'bottom' && title) ? 6 : 0, 
+						marginRight: (iconPosition === 'left' && title) ? 6 : 0, 
+						marginBottom: (iconPosition === 'top' && title) ? 6 : 0,
+						marginLeft: (iconPosition === 'right' && title) ? 6 : 0 
 					}]
 				} 
 			/>
@@ -56,7 +60,7 @@ const Button = ({onPress, buttonStyle = 'default', label, icon = '', iconColor, 
 
   const textComponent = (
     <Text style={[styles.buttonText, buttonStyle && styles[`${buttonStyle}Text`]]}>
-      {label}
+      {title}
     </Text>
   )
 
