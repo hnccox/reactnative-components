@@ -108,7 +108,7 @@ const ToggleComponent = ({value = true, name, disabled = false, size = 0, label,
 				break;
 			default: Number.isInteger(size) ? _size = size as number : _size = 0;
 		}
-		if((optionLabels?.position === 'inner' || !size )) {
+		if((optionLabels?.position === 'inner' || size === 'auto')) {
 			if(checkedLabelDimensions.width > uncheckedLabelDimensions.width) {
 				return ((checkedLabelDimensions.width > _size) ? checkedLabelDimensions.width : _size)
 			} else {
