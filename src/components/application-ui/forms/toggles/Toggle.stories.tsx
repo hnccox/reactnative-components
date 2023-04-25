@@ -1,7 +1,7 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import Card from '../../layout/panels/Card';
-import {ComponentMeta, ComponentStory} from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import tw from 'twrnc';
 
 import Toggle from './Toggle';
@@ -15,7 +15,6 @@ export default {
 	// },
 } as ComponentMeta<typeof Toggle>;
 
-
 // const ToggleTemplate: ComponentStory<typeof Toggle> = (args) => {
 
 // 	return (
@@ -26,11 +25,11 @@ export default {
 // }
 
 export const Default: ComponentStory<typeof Toggle> = args => (
-  <View style={tw`flex flex-row items-center justify-center m-5`}>
+	<View style={tw`flex flex-row items-center justify-center m-5`}>
 		<Card>
-    	<Toggle {...args} />
+			<Toggle {...args} />
 		</Card>
-  </View>
+	</View>
 );
 
 // More on args: https://storybook.js.org/docs/vue/writing-stories/args
@@ -40,16 +39,17 @@ Default.args = {
 	size: 'auto',
 	label: {
 		title: 'Available to hire',
-		description: 'Nulla amet tempus sit accumsan. Aliquet turpis sed sit lacinia.',
-		position: 'right'
+		description:
+			'Nulla amet tempus sit accumsan. Aliquet turpis sed sit lacinia.',
+		position: 'right',
 	},
 	optionLabels: {
 		checked: 'Enabled',
 		unchecked: 'Disabled',
-		position: 'inner'
+		position: 'inner',
 	},
 	icons: {
 		checked: 'check',
-		unchecked: 'xmark'
+		unchecked: 'xmark',
 	},
 };

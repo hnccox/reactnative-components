@@ -28,19 +28,25 @@ argsEnhancers.forEach((enhancer) => addArgsEnhancer(enhancer));
 
 const getStories = () => {
   return [
-    require("../src/components/button/AppButton.stories.tsx"),
-    require("../src/components/button/AppButtonGroup.stories.tsx"),
-    require("../src/components/button/OptionSlider.stories.tsx"),
-    require("../src/components/calendar/Calendar.stories.tsx"),
+    require("../src/components/application-ui/data-display/calendars/Calendar.stories.tsx"),
+    require("../src/components/application-ui/elements/buttons/Button.stories.tsx"),
+    require("../src/components/application-ui/elements/buttons/ButtonGroup.stories.tsx"),
+    require("../src/components/application-ui/elements/buttons/OptionSlider.stories.tsx"),
+    require("../src/components/application-ui/elements/pills/Pill.stories.tsx"),
+    require("../src/components/application-ui/forms/input-groups/AppInputText.stories.tsx"),
+    require("../src/components/application-ui/forms/input-groups/Input.stories.tsx"),
+    require("../src/components/application-ui/forms/input-groups/InputButton.stories.tsx"),
+    require("../src/components/application-ui/forms/input-groups/InputCheckbox.stories.tsx"),
+    require("../src/components/application-ui/forms/toggles/Switch.stories.tsx"),
+    require("../src/components/application-ui/forms/toggles/Toggle.stories.tsx"),
+    require("../src/components/application-ui/layout/panels/BottomPanel.stories.tsx"),
+    require("../src/components/application-ui/layout/panels/Card.stories.tsx"),
+    require("../src/components/application-ui/layout/panels/Well.stories.tsx"),
+    require("../src/components/application-ui/layout/StepIndicator.stories.tsx"),
+    require("../src/components/application-ui/layout/StepWizard.stories.tsx"),
+    require("../src/components/application-ui/overlays/modals/Modal.stories.tsx"),
+    require("../src/components/htmlelements/Dimensions.stories.tsx"),
     require("../src/components/htmlelements/HTMLElements.stories.tsx"),
-    require("../src/components/layout/BottomPanel.stories.tsx"),
-    require("../src/components/layout/Dimensions.stories.tsx"),
-    require("../src/components/layout/StepIndicator.stories.tsx"),
-    require("../src/components/layout/Steps.stories.tsx"),
-    require("../src/components/modal/AppModal.stories.tsx"),
-    require("../src/components/pill/AppPill.stories.tsx"),
-    require("../src/components/toggles/AppSwitch.stories.tsx"),
-    require("../src/components/ui/input/AppInputText.stories.tsx"),
   ];
 };
 
